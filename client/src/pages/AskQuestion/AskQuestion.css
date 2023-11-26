@@ -1,0 +1,73 @@
+.askQuestion{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+    width: 100%;
+    padding: 40px;
+}
+.askQuestionHeading{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.askQuestionContent{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.askQuestionContentHeading{
+    display: flex;
+    flex-direction: column;
+}
+.askQuestionContentLabel{
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+.askQuestionDesc{
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 100;
+    color: rgb(39, 39, 39);
+    margin-left: 5px;
+}
+.askQuestionContentInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+}
+.askQuestionContentTextarea{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+    resize: none;
+}
+.askQuestionContentBtn{
+    width: max-content;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #1a73e8;
+    &:hover{
+        background-color: white;
+        color: #1a73e8;
+        border: 1px solid #1a73e8;
+    }
+}

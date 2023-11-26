@@ -1,0 +1,112 @@
+.question{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.questionContainer{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+.detailsBox{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 10px 20px;
+    gap: 5px;
+    font-size: 14px;
+    color: gray;
+}
+.questionBox{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.questionStatement{
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(55, 119, 246);
+    font-size: 20px;
+    text-transform:capitalize;
+    margin-bottom: 10px;
+}
+.questionStatement:hover{
+    color: blue;
+    cursor: pointer;
+}
+.questionDescription{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+.questionFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
+    font-weight: 200;
+}
+.tags{
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.tag{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgb(219, 235, 253);
+    color: rgb(48, 116, 251);
+    font-size: 14px;
+    font-weight: 200;   
+}
+.tag:hover{
+    background-color: rgb(175, 215, 252);
+    color: white;
+    cursor: pointer;
+}
+.askedBy{
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 200;
+}
+.name{
+    color: rgb(55, 119, 246);
+    font-size: 14px;
+    font-weight: 200;
+    text-transform: capitalize;
+}
+.name:hover{
+    color: blue;
+    cursor: pointer;
+}
+.date{
+    color: gray;
+    font-size: 14px;
+    font-weight: 200;
+}

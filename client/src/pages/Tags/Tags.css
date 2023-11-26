@@ -1,0 +1,62 @@
+.Tags{
+    width: 100%;
+    display: flex;
+}
+.tagsContainer{
+    width: calc(100% - 150px);
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    border-left: 1px solid lightgrey;
+    padding: 20px;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.tagsHeading{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.tagsSubHeading{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.tagsList{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 20px;
+}
+.tagBox{
+    width: 240px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    gap: 10px;
+    &:hover{
+        transform: scale(1.05);
+        background-color: #e1ecf4;
+    }
+}
+.tagBoxName{
+    width: max-content;
+    padding: 5px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #e1ecf4;
+    color: #39739d;
+}
+.tagBoxtext{
+    font-size: 16px;
+    color: grey;
+    margin-bottom: 5px;
+}

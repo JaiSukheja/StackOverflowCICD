@@ -1,0 +1,120 @@
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    height: calc(100vh - 50px);
+}
+.signupLeft{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.signupLeftHeading{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.subPoints{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+.subPoint{
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+}
+.subPoint span{
+    font-weight: 100;
+}
+.subPoint i{
+    color: #5188fd;
+    font-size: 24px;
+}
+.signupRight{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.signupLogoImg{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+
+}
+.signupInputContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.signupInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.signupInputLabel{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.signupInput input{
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px 10px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.signupbtn{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid salmon;
+    color: white;
+    font-size: 16px;
+    font-weight: 100!important;
+    cursor: pointer;
+    background-color: salmon;
+    padding: 7.5px;
+    transition: all 0.3s ease;
+}
+.signupbtn:hover{
+    background-color: white ;
+    color: salmon;
+}
+.signupTerms{
+    text-align: center;
+    font-size: 12px;
+}
+.signupLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.signupLogin a,
+.signupTerms a{
+    text-decoration: none;
+    color:#2568fa;
+}
+.signupLogin a:hover,
+.signupTerms a:hover{
+    text-decoration: underline;
+}

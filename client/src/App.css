@@ -1,0 +1,19 @@
+.app{
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.appContainer{
+    display: flex;
+    width: 82%;
+    background-color: white;
+}
+.sidebarContianer{
+    width: 10%;
+}
+.mainContainer{
+    width: 90%;
+}
