@@ -28,10 +28,7 @@ const Login = () => {
       setUsername(res.data.username)
       setToken(res.data._id)
       setUser(res.data)
-      if(window.location.href === "/login"){
-        window.location.href = "/"
-      }
-        
+      window.location.href = "/"
     })
     .catch((err) => {
       console.log(err)

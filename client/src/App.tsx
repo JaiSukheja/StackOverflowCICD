@@ -43,11 +43,11 @@ const App = () => {
         },
         {  
           path: "/signup",
-          element: <Signup/>
+          element: isLoggedIn ? <Home/> :<Signup/>
         },
         {  
           path: "/Login",
-          element: <Login/>
+          element: isLoggedIn ? <Home/> :<Login/>
         },
         {  
           path: "/AskQuestion",
