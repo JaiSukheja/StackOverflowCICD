@@ -4,6 +4,8 @@ import { useContext } from "react"
 import UserContext from "../../context/userContext"
 import axios from "axios"
 
+import logoimg from "../../assets/Stack_Overflow.png"
+
 const Navbar = () => {
     const {username,setUsername,isLoggedIn,setIsLoggedIn,token,setToken}:any = useContext(UserContext)
     const handleLogout = async () => {
@@ -30,7 +32,7 @@ const Navbar = () => {
             </button> */}
             <div className="navlinks">
                 <Link to="/" className="logo">
-                    <img src="src\assets\Stack_Overflow.png" alt="" className="logoImg"/>
+                    <img src={logoimg} alt="" className="logoImg"/>
                 </Link>
                 <div className="navlink">About</div>
                 <div className="navlink">Product</div>

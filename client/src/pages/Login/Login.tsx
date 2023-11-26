@@ -3,6 +3,9 @@ import "./Login.css"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import UserContext from "../../context/userContext"
+
+import logoimg from "../../assets/logo.png"
+
 const Login = () => {
   const {setIsLoggedIn,setUsername,setToken,setUser}:any = useContext(UserContext)
   const [email,setEmail] = useState("")
@@ -40,7 +43,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="loginContainer">
-        <img src="src\assets\logo.png" alt="logo" className="loginLogoImg" />
+        <img src={logoimg} alt="logo" className="loginLogoImg" />
           <div className="loginInputContainer">
             <div className="loginInput">
               <label htmlFor="Email" className="loginInputLabel">Email</label>

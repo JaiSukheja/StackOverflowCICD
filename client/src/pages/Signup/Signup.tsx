@@ -2,6 +2,10 @@ import "./Signup.css"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { useState } from "react"
+
+import logoimg from "../../assets/logo.png"
+
+
 const Signup = () => {
   const [username,setUsername] = useState("")
   const [email,setEmail] = useState("")
@@ -53,7 +57,7 @@ const Signup = () => {
         </div>
       </div>
       <div className="signupRight">
-        <img src="src\assets\logo.png" alt="logo" className="signupLogoImg" />
+        <img src={logoimg} alt="logo" className="signupLogoImg" />
         <div className="signupInputContainer">
           <div className="signupInput">
             <label htmlFor="Username" className="signupInputLabel">Username</label>
