@@ -27,10 +27,10 @@ const QuestionSchema = new mongoose.Schema({
     tags: [{
         type: String,
     }],
-    views: {
-        type: Number,
-        default: 0,
-    },
+    views: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }],
     reports: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Answer',
     }],
+    isLoggedin: {
+        type: Boolean,
+        default: false,
+    },
     },
     { timestamps: true }
 );

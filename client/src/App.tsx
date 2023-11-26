@@ -9,19 +9,23 @@ import Profile from "./pages/Profile/Profile";
 import ViewQuestion from "./pages/ViewQuestion/ViewQuestion";
 import Tags from "./pages/Tags/Tags";
 import Questions from "./pages/Questions/Questions";
-import Sidebar from "./components/Sidebar/Sidebar";
 import NotFound from "./pages/NotFound/NotFound";
+import UserContext from "./context/userContext";
+import { useContext } from "react";
 
 
 const App = () => {
+  const { isLoggedIn }:any = useContext(UserContext)
   const Layout=()=>{
     return (
-      <div className="app">  
-        <Navbar/>
-        <div className="appContainer">
-          <Outlet/>
+      <>
+        <div className="app">  
+          <Navbar/>
+          <div className="appContainer">
+            <Outlet/>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
   const router = createBrowserRouter([
@@ -47,7 +51,7 @@ const App = () => {
         },
         {  
           path: "/AskQuestion",
-          element: <AskQuestion/>
+          element: isLoggedIn ? <AskQuestion/> : <Login/>
         },
         {
           path: "/questions",

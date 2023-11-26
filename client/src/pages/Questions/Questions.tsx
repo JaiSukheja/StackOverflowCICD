@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 const Questions = () => {
     const [QuestionArray, setQuestionArray] = useState([]);
-
     useEffect(() => {
         axios.get("http://localhost:4444/question").then((res) => {
             setQuestionArray(res.data);
@@ -29,7 +28,7 @@ const Questions = () => {
                 <Link to="/askquestion" className="Askbtn">Ask Question</Link>
             </div>
             <div className="questionsContainer">
-                {QuestionArray.map((item:any,idx) => {
+                {QuestionArray.map((item:any,idx:any) => {
                     return <Question data={item} key={idx}/>
                 })}
             </div>  

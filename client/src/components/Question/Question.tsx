@@ -7,7 +7,7 @@ const Question = (props:any) => {
             <div className="detailsBox">
                 <div className="votes">{props.data.upvotes.length} votes</div>
                 <div className="answers">{props.data.answers.length} answers</div>
-                <div className="views">{props.data.views} views</div>
+                <div className="views">{props.data.views.length} views</div>
             </div>
             <div className="questionBox">
                 <Link to={"/viewquestion/"+ props.data._id} className="questionStatement">

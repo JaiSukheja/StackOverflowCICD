@@ -9,11 +9,15 @@ const ViewQuestion = () => {
     const [reset,SetReset] = useState(false)
     const [user,setUser] = useState(false)
     const [text, setText] = useState("")
-
-    
+    const [shareModal, setShareModal] = useState(false)
+    const [copyMessage, setCopyMessage] = useState(false)    
     const qid = useParams().id;
     const [question, setQuestion] = useState<any>(null);
     const [answers, setAnswers] = useState<any>(null);
+    const [upvote, setUpvote] = useState(false);
+    const [downvote, setDownvote] = useState(false);
+    
+    
     const handleClick = () => {
         axios.post("http://localhost:4444/answer/"+ question._id, {
             text: text,
@@ -31,21 +35,32 @@ const ViewQuestion = () => {
     
 
     useEffect(() => {
-        axios.get("http://localhost:4444/question/" + qid).then((res) => {
+        axios.put("http://localhost:4444/question/" + qid, {
+            userId: "6558ccd25a19a054321630eb",
+        }).then((res) => {
             setQuestion(res.data);
-            // console.log(res);
+                res.data.upvotes.includes("6558ccd25a19a054321630eb")? setUpvote(true): setUpvote(false);
+                res.data.downvotes.includes("6558ccd25a19a054321630eb")? setDownvote(true): setDownvote(false);
         }
         ).catch((err) => {
             console.log(err);
         })
+
         axios.get("http://localhost:4444/answer/" + qid).then((res) => {
             setAnswers(res.data);
-            // console.log(res);
         }
         ).catch((err) => {
             console.log(err);
         })
+        
     }, [reset])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setCopyMessage(false)
+        }
+        , 3000)
+    }, [copyMessage])
 
   return (
     <div className="viewQuestion">
@@ -74,21 +89,54 @@ const ViewQuestion = () => {
                     Modified <span className="viewQuestionDetailValue">{question?.updatedAt ? new Date(question?.updatedAt).toLocaleDateString() : "Not Modified"}</span>
                 </pre>
                 <pre className="viewQuestionDetail">
-                    Viewed <span className="viewQuestionDetailValue">{question?.views}</span>
+                    Viewed <span className="viewQuestionDetailValue">{question?.views.length}</span>
                 </pre>
             </div>
             <div className="viewQuestionBody">
                 <div className="questionVotes">
-                    <button>
-                        <i className='bx bx-caret-up'></i>
+                    <button onClick={
+                        () => {
+                            axios.put("http://localhost:4444/question/" + question._id + "/upvote", {
+                                userId: "6558ccd25a19a054321630eb",
+                            })
+                            .then((res) => {
+                                console.log(res);
+                                SetReset(!reset)
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                        }
+                    }
+                    
+                    >
+                        <i className={
+                        upvote ? "bx bx-caret-up active" : "bx bx-caret-up"
+                    }></i>
                     </button>
                     <div className="questionVotesCount">
                         {
-                            (question?.upvotes.length - question?.downvotes.length) || 0
+                            question?.upvotes.length - question?.downvotes.length
                         }
                     </div>
-                    <button>
-                        <i className='bx bx-caret-down'></i>
+                    <button onClick={
+                        () => {
+                            axios.put("http://localhost:4444/question/" + question._id + "/downvote", {
+                                userId: "6558ccd25a19a054321630eb",
+                            })
+                            .then((res) => {
+                                console.log(res);
+                                SetReset(!reset)
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                        }
+                    } 
+                    >
+                        <i className={
+                        downvote ? "bx bx-caret-down active" : "bx bx-caret-down"
+                        }></i>
                     </button>
                 </div>
                 <div className="viewQuestionDescription">
@@ -103,7 +151,11 @@ const ViewQuestion = () => {
                     <div className="ViewQuestionLinks">
                         <div className="viewQuestionLink">
                             <i className='bx bx-share-alt'></i>
-                            <span className="viewQuestionLinkName">Share</span>
+                            <span className="viewQuestionLinkName" onClick={
+                                () => {
+                                    setShareModal(!shareModal)
+                                }
+                            }>Share</span>
                         </div>
                         <div className="viewQuestionLink">
                             <i className='bx bxs-flag-alt' ></i>
@@ -116,6 +168,46 @@ const ViewQuestion = () => {
                     </div>
                 </div>
             </div>
+            {
+                shareModal && (
+                    <div className="shareModal">
+                        <div className="shareModalContainer">
+
+                            <div className="shareModalHeading">
+                                Copy link
+                            </div>
+                            <div className="shareModalLink">
+                                {window.location.href}
+                            </div>
+                            <div className="shareModalBtns">
+                                <button className="shareModalBtn" 
+                                onClick={() => {
+                                    navigator.clipboard.writeText(window.location.href)
+                                    setCopyMessage(true)
+                                }}
+                                >
+                                    <i className='bx bx-copy-alt'></i> Copy
+                                </button>
+                                <button className="shareModalBtn" onClick={
+                                    () => {
+                                        setShareModal(!shareModal)
+                                        setCopyMessage(false)
+                                    }
+                                }>
+                                    <i className='bx bx-x'></i>
+                                    Close</button>
+                            </div>
+                            {
+                                copyMessage && (
+                                    <div className="copyMessage">
+                                        Link copied to clipboard!
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                )
+            }
             <div className="viewQuestionAnswers">
                 <div className="viewQuestionAnswersHeading">
                     {question?.answers.length} Answers

@@ -1,6 +1,24 @@
 import "./Signup.css"
 import { Link } from "react-router-dom"
+import axios from "axios"
+import { useState } from "react"
 const Signup = () => {
+  const [username,setUsername] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const handleSignup = async () => {
+    axios.post("http://localhost:4444/user/signup",{username,email,password})
+    .then((res) => {
+      console.log(res.data)
+      setEmail("")
+      setPassword("")
+      setUsername("")
+      window.location.href = "/login"
+    })
+    .catch((err) => {
+      console.log(err)
+    })    
+  }
   return (
     <div className="signup">
       <div className="signupLeft">
@@ -39,18 +57,36 @@ const Signup = () => {
         <div className="signupInputContainer">
           <div className="signupInput">
             <label htmlFor="Username" className="signupInputLabel">Username</label>
-            <input type="text" placeholder="Enter your Username" />
+            <input type="text" placeholder="Enter your Username" onChange={
+              (e) => {
+                setUsername(e.target.value)
+              }
+            } 
+            value={username}
+            />
           </div>
           <div className="signupInput">
             <label htmlFor="Email" className="signupInputLabel">Email</label>
-            <input type="text" placeholder="Enter your Email" />
+            <input type="text" placeholder="Enter your Email" onChange={
+              (e) => {
+                setEmail(e.target.value)
+              }
+            } 
+            value={email}
+            />
           </div>
           <div className="signupInput">
             <label htmlFor="Password" className="signupInputLabel">Password</label>
-            <input type="password" placeholder="Enter your Password"/>
+            <input type="password" placeholder="Enter your Password" onChange={
+              (e) => {
+                setPassword(e.target.value)
+              }
+            } 
+            value={password}
+            />
           </div>
           <div className="signupInput">
-            <button className="signupbtn">
+            <button className="signupbtn" onClick={handleSignup}>
               Sign Up
             </button>  
           </div>
