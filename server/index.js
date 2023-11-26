@@ -22,7 +22,7 @@ mongoose.connect(mongoUrl)
     
 app.use(
     cors({
-        origin: "https://stack-overflow-orcin.vercel.app"
+        origin: "https://stack-overflow-orcin.vercel.app",
     }));
         
 app.use(express.json());

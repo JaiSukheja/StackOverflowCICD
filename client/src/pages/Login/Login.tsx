@@ -15,7 +15,9 @@ const Login = () => {
     axios.post("http://localhost:4444/user/login",{email,password})
     .then((res) => {
       // console.log(res.data)
-      setIsLoggedIn(true)
+      setIsLoggedIn(true).then(() => {
+        console.log("logged in")
+      })
       // if token is already present in local storage then remove it
       localStorage.removeItem("StackOverflowToken")
       // set token in local storage
