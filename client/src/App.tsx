@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar/Navbar"
 import "./App.css"
-import {  createBrowserRouter,  RouterProvider, Outlet} from "react-router-dom";
+import {  createBrowserRouter,  RouterProvider, Outlet, Navigate} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
@@ -43,15 +43,15 @@ const App = () => {
         },
         {  
           path: "/signup",
-          element: isLoggedIn ? <Home/> :<Signup/>
+          element: isLoggedIn ? <Navigate to="/"/> :<Signup/>
         },
         {  
           path: "/Login",
-          element: isLoggedIn ? <Home/> :<Login/>
+          element: isLoggedIn ?  <Navigate to="/"/> :<Login/>
         },
         {  
           path: "/AskQuestion",
-          element: isLoggedIn ? <AskQuestion/> : <Login/>
+          element: isLoggedIn ? <AskQuestion/> :  <Navigate to="/login"/>
         },
         {
           path: "/questions",
@@ -59,7 +59,7 @@ const App = () => {
         },
         {  
           path: "/Profile",
-          element: <Profile/>
+          element: isLoggedIn ? <Profile/> :  <Navigate to="/login"/>
         },
         {
           path: "/tags",
