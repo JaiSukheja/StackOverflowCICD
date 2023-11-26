@@ -1,13 +1,14 @@
 import { Link, useParams } from "react-router-dom"
 import Sidebar from "../../components/Sidebar/Sidebar"
 import "./ViewQuestion.css"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
+import UserContext from "../../context/userContext"
 
 const ViewQuestion = () => {
+    const {user}:any = useContext(UserContext)
     const [reset,SetReset] = useState(false)
-    const [user,setUser] = useState(false)
     const [text, setText] = useState("")
     const [shareModal, setShareModal] = useState(false)
     const [copyMessage, setCopyMessage] = useState(false)    
