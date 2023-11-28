@@ -1,12 +1,13 @@
 .home{
     display: flex;
     width: 100%;
+    min-height: 100vh;
 }
 .homeContainer{
     display: flex;
     flex-direction: column;
     scroll-behavior: smooth;
-    border-left: 1px solid lightgrey;
+    /* border-left: 1px solid lightgrey; */
     padding: 20px;
     &::-webkit-scrollbar {
         display: none;

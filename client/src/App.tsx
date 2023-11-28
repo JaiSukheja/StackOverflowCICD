@@ -12,6 +12,8 @@ import Questions from "./pages/Questions/Questions";
 import NotFound from "./pages/NotFound/NotFound";
 import UserContext from "./context/userContext";
 import { useContext } from "react";
+import About from "./pages/About/About";
+import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
@@ -24,6 +26,7 @@ const App = () => {
           <div className="appContainer">
             <Outlet/>
           </div>
+          <Footer/>
         </div>
       </>
     )
@@ -40,6 +43,10 @@ const App = () => {
         {
           path: "/Home",
           element: <Home/>
+        },
+        {
+          path: "/about",
+          element: <About/>
         },
         {  
           path: "/signup",

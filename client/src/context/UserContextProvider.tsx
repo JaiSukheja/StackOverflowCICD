@@ -10,7 +10,6 @@ const UserContextProvider = ({children}:any) => {
 
     // check if user is logged in or not
     useEffect(() => {    
-      return () => {
         const token = localStorage.getItem("StackOverflowToken")
         const username = localStorage.getItem("StackOverflowUsername")
         if(token && username){
@@ -18,8 +17,7 @@ const UserContextProvider = ({children}:any) => {
             setUsername(username)
             setToken(token)
         }
-      }
-    }, [])
+    },)
 
     return (
         <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,username,setUsername,token,setToken,userId,setUserId,user,setUser}}>
