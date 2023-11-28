@@ -3,7 +3,6 @@ import "./Home.css"
 const Home = () => {
   return (
     <div className="home">
-      {/* <Sidebar activeLink={"home"}/> */}
       <div className="homeContainer">
         Home
       </div>
