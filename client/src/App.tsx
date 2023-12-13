@@ -38,7 +38,7 @@ const App = () => {
       children:[
         {  
           path: "/",
-          element: <Home/>
+          element: <Questions/>
         },
         {
           path: "/Home",
@@ -61,11 +61,15 @@ const App = () => {
           element: isLoggedIn ? <AskQuestion/> :  <Navigate to="/login"/>
         },
         {
+          path: "/edit/:id",
+          element: isLoggedIn ? <AskQuestion/> :  <Navigate to="/login"/>
+        },
+        {
           path: "/questions",
           element: <Questions/>
         },
         {  
-          path: "/Profile",
+          path: "/Profile/:id",
           element: isLoggedIn ? <Profile/> :  <Navigate to="/login"/>
         },
         {

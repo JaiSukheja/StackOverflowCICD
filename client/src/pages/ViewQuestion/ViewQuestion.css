@@ -32,6 +32,7 @@
     width: 20%;
 }
 .viewQuestionBtn{
+    text-decoration: none;
     background-color: #1a73e8;
     color: white;
     border: none;
@@ -98,14 +99,14 @@
     padding: 2.5px;
     border-radius: 50%;
 }
-.questionVotes i:hover{
+/* .questionVotes i:hover{
     background-color: rgb(252, 210, 206);
-}
+} */
 .questionVotes button i.active{
-    background-color: rgb(250, 169, 162);
-    &:hover{
+    background-color: salmon;
+    /* &:hover{
         background-color: white;
-    }
+    } */
 }
 .questionVotesCount{
     font-size: 20px;
@@ -215,6 +216,12 @@
 }
 .answerVotes i:hover{
     background-color: rgb(252, 210, 206);
+}
+.answerVotes button i.active{
+    background-color: salmon;
+    /* &:hover{
+        background-color: white;
+    } */
 }
 .answerVotesCount{
     font-size: 20px;

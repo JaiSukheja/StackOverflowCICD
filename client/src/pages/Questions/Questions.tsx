@@ -8,7 +8,7 @@ const Questions = () => {
     const [QuestionArray, setQuestionArray] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:4444/question").then((res) => {
-            setQuestionArray(res.data);
+            setQuestionArray(res.data.reverse());
             // console.log(res);
         }).catch((err) => {
             console.log(err);

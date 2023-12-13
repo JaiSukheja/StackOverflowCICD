@@ -88,4 +88,48 @@ router.get("/:id", async (req,res)=>{
     }
 });
 
+// get total points of a user
+
+router.get("/points/:id", async (req,res)=>{
+    try{
+        const user = await User.findById(req.params.id);
+        const totalPoints = user.points.questions*10 + user.points.answers*20 + user.points.acceptedanswers*15 + user.points.questionUpvotes*2 + user.points.questionDownvotes*(-1) + user.points.answerUpvotes*5 + user.points.answerDownvotes*(-2); 
+        res.status(200).json(totalPoints);
+    }catch(err){
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router
+
+
+// Points System Example:
+// Asking a Question:
+
+// Points: 10
+// Rationale: Encourages users to actively seek information and engage with the community.
+// Providing an Answer:
+
+// Points: 20
+// Rationale: Recognizes and rewards users for contributing helpful information.
+// Answer Upvote:
+
+// Points: 5
+// Rationale: Encourages users to provide valuable answers that are appreciated by the community.
+// Answer Downvote:
+
+// Points: -2
+// Rationale: Discourages low-quality or incorrect answers.
+// Question Upvote:
+
+// Points: 2
+// Rationale: Recognizes users for asking valuable and well-received questions.
+// Question Downvote:
+
+// Points: -1
+// Rationale: Encourages users to ask clear and relevant questions.
+// Accepting an Answer:
+
+// Points: 15
+// Rationale: Rewards users for selecting the most helpful answer, adding value to the platform.
+// Upvoting a Comment:

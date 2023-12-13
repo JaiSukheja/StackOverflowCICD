@@ -12,6 +12,7 @@ const AnswerSchema = new mongoose.Schema({
     questionId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question',
+        required: true,
     },
     upvotes: [{
         type: mongoose.Schema.Types.ObjectId,

@@ -1,6 +1,19 @@
+import { useEffect, useState } from "react";
 import "./Question.css"
 import { Link } from "react-router-dom";
+import axios from "axios";
 const Question = (props:any) => {
+    const [username,setUsername] = useState("")
+    useEffect(() => {
+        axios.get("http://localhost:4444/user/"+props.data.user)
+        .then((res:any) => {
+            setUsername(res.data.username)
+        })
+        .catch((err:any) => {
+            console.log(err)
+        })
+    }
+    ,[])
   return (
     <div className="question">
         <div className="questionContainer">
@@ -24,7 +37,7 @@ const Question = (props:any) => {
                             })
                         }
                     </div>
-                    <div className="askedBy">asked by <span className="name">{props.data.user}</span> on <span className="date">{new Date(props.data.createdAt).toLocaleDateString()}</span></div>
+                    <div className="askedBy">asked by <Link to={"/profile/"+props.data.user} className="name">{username}</Link> on <span className="date">{new Date(props.data.createdAt).toLocaleDateString()}</span></div>
                 </div>
                 
             </div>

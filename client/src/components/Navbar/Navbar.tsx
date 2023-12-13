@@ -7,7 +7,7 @@ import axios from "axios"
 import logoimg from "../../assets/Stack_Overflow.png"
 
 const Navbar = () => {
-    const {username,setUsername,isLoggedIn,setIsLoggedIn,token,setToken}:any = useContext(UserContext)
+    const {username,setUsername,isLoggedIn,setIsLoggedIn,token,setToken,userId}:any = useContext(UserContext)
     const handleLogout = async () => {
         axios.put("http://localhost:4444/user/logout/" + token)
         .then((res) => {
@@ -35,7 +35,7 @@ const Navbar = () => {
                     <img src={logoimg} alt="" className="logoImg"/>
                 </Link>
                 <Link to="/about" className="navlink">About</Link>
-                <div className="navlink">Product</div>
+                <Link to="/questions" className="navlink">Product</Link>
                 <div className="navlink">For Teams</div>
             </div>
             <div className="searchbar">
@@ -50,7 +50,7 @@ const Navbar = () => {
                         <Link to="/signup" className="signupBtn">Sign up</Link>
                     </> :  
                         <>
-                            <Link to="/profile" className="loginBtn"><i className='bx bx-user'></i>{username} </Link>
+                            <Link to={"/profile/"+ userId} className="loginBtn"><i className='bx bx-user'></i>{username} </Link>
                             <button className="signupBtn" onClick={handleLogout}>Logout</button>
                         </>
                 }
