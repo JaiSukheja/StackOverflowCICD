@@ -12,14 +12,16 @@ const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
 const userRoute = require("./routes/user");
 
-mongoose.connect(mongoUrl)
-    .then(() => {
-        console.log('Connected to MongoDB');
-    })
-    .catch((error) => {
-        console.error('Error connecting to MongoDB:', error);
-    });
-    
+
+const connect = async () => {   
+    await mongoose.connect(mongoUrl)
+        .then(() => {
+            console.log('Connected to MongoDB');
+        })
+        .catch((error) => {
+            console.error('Error connecting to MongoDB:', error);
+        });   
+}
 app.use(
     cors({
         origin: ["http://localhost:5173","https://stack-overflow-orcin.vercel.app","https://stack-overflow-ooauwbu6n-jaisukhejas-projects.vercel.app"]
@@ -42,5 +44,6 @@ app.use("/user", userRoute);
 
 
 app.listen(port,()=>{
+    connect();
     console.log("Server is running at : http://localhost:" + port)
 })
