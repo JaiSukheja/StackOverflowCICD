@@ -11,6 +11,7 @@ const mongoUrl = process.env.MONGO_URL;
 const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
 const userRoute = require("./routes/user");
+const Question = require('./model/Question');
 
 
 const connect = async () => {   
@@ -31,8 +32,14 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get('/', (req, res) => {
-    res.send('Server is up and running')
+app.get('/', async (req, res) => {
+    try {
+        const questions = await Question.find();
+        res.status(200).json(questions);
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error);
+    }
 })
 
 app.use("/question", QuestionRoute);
