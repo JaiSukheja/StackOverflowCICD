@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Question.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import apiContext from "../../context/apiContext";
 const Question = (props:any) => {
     const [username,setUsername] = useState("")
+    const {apiUrl}:any = useContext(apiContext)
     useEffect(() => {
-        axios.get("http://localhost:4444/user/"+props.data.user)
+        axios.get(apiUrl+"user/"+props.data.user)
         .then((res:any) => {
             setUsername(res.data.username)
         })

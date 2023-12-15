@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import UserContext from "../../context/userContext";
 import ViewAnswers from "../../components/ViewAnswers/ViewAnswers";
+import apiContext from "../../context/apiContext";
 
 const ViewQuestion = () => {
     const [reset, setReset] = useState<any>(false);
@@ -17,11 +18,12 @@ const ViewQuestion = () => {
     const [upvote, setUpvote] = useState(false);
     const [downvote, setDownvote] = useState(false);
     const { user:currentUser }: any = useContext(UserContext);
+    const {apiUrl}:any = useContext(apiContext);
 
     
 
     useEffect(() => {
-        axios.put("http://localhost:4444/question/" + qid, {
+        axios.put(apiUrl+"question/" + qid, {
                 userId: currentUser?._id,
             })
             .then((res) => {
@@ -39,7 +41,7 @@ const ViewQuestion = () => {
     }, [reset]);
     useEffect(() => {
         axios
-            .get("http://localhost:4444/answer/" + qid)
+            .get(apiUrl+"answer/" + qid)
             .then((res) => {
                 setAnswers(res.data);
             })
@@ -51,7 +53,7 @@ const ViewQuestion = () => {
     const upvoteClick = () => {
         console.log(currentUser)
         axios
-            .put("http://localhost:4444/question/" + question._id + "/upvote", {
+            .put(apiUrl+"question/" + question._id + "/upvote", {
                 userId: currentUser._id,
             })
             .then((res) => {
@@ -66,7 +68,7 @@ const ViewQuestion = () => {
     const downvoteClick = () => {
         console.log(currentUser)
         axios
-            .put("http://localhost:4444/question/" + question._id + "/downvote", {
+            .put(apiUrl+"question/" + question._id + "/downvote", {
                 userId: currentUser._id,
             })
             .then((res) => {
@@ -101,7 +103,7 @@ const ViewQuestion = () => {
                                 <button className="viewQuestionBtn"
                                 onClick={
                                     () => {
-                                        axios.delete("http://localhost:4444/question/" + qid,
+                                        axios.delete(apiUrl+"question/" + qid,
                                         {data:{
                                             user: currentUser._id,
                                         }})

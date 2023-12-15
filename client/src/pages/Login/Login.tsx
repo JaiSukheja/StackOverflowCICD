@@ -5,14 +5,16 @@ import axios from "axios"
 import UserContext from "../../context/userContext"
 
 import logoimg from "../../assets/logo.png"
+import apiContext from "../../context/apiContext"
 
 const Login = () => {
   const {setIsLoggedIn,setUsername,setToken,setUser}:any = useContext(UserContext)
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
+  const {apiUrl}:any = useContext(apiContext)
 
   const handleLogin = async () => {
-    axios.post("http://localhost:4444/user/login",{email,password})
+    axios.post(apiUrl+"user/login",{email,password})
     .then((res) => {
       // console.log(res.data)
       setIsLoggedIn(true)

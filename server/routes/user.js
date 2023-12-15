@@ -37,6 +37,7 @@ router.post("/login", async (req,res)=>{
         await user.updateOne({ $set: { isLoggedin: true } });
 
         res.status(200).json(user);
+        res.send("Logged in");
     }catch(err){
         console.log(err)
         res.status(500).json(err);

@@ -1,6 +1,7 @@
 import axios from "axios";
 import UserContext from "./userContext";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
+import apiContext from "./apiContext";
 
 const UserContextProvider = ({children}:any) => {
     const [isLoggedIn,setIsLoggedIn] = useState(false)
@@ -8,6 +9,7 @@ const UserContextProvider = ({children}:any) => {
     const [token,setToken] = useState("")
     const [userId,setUserId] = useState("")
     const [user,setUser] = useState({})
+    const {apiUrl}:any = useContext(apiContext)
 
 
     // check if user is logged in or not
@@ -19,7 +21,7 @@ const UserContextProvider = ({children}:any) => {
             setUsername(username)
             setToken(token)
         }
-        token? axios.get("http://localhost:4444/user/"+token)
+        token? axios.get(apiUrl+"user/"+token)
         .then((res) => {
             setUserId(res.data._id)
             setUser(res.data)

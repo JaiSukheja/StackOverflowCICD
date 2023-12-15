@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import UserContext from "../../context/userContext";
 import axios from "axios";
 import "./ViewAnswers.css"
+import apiContext from "../../context/apiContext";
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     const [text, setText] = useState("");
@@ -10,11 +11,12 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     const [copyMessage, setCopyMessage] = useState<any>(false);
     const [upvote, setUpvote] = useState(false);
     const [downvote, setDownvote] = useState(false);
+    const {apiUrl}:any = useContext(apiContext)
     // console.log(question?.user,currentUser._id)
     const [edit, setEdit] = useState(false);
     const handleClick = () => {
         axios
-            .post("http://localhost:4444/answer/" + question._id, {
+            .post(apiUrl+"answer/" + question._id, {
                 text: text,
                 user: currentUser._id,
                 questionId: question._id,
@@ -30,7 +32,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     };
     const handleAccept = (id: any) => {
         axios
-            .post("http://localhost:4444/answer/accept/" + id, {
+            .post(apiUrl+"answer/accept/" + id, {
                 questionId: question._id,
             })
             .then((res) => {
@@ -43,7 +45,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
             });
     };
     const editClick = () => {
-        axios.put("http://localhost:4444/answer/edit/" + edit,{
+        axios.put(apiUrl+"answer/edit/" + edit,{
             text: text,
             user: currentUser._id,
             questionId: question._id,
@@ -59,7 +61,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const deleteClick = (id:any) => {
-        axios.delete("http://localhost:4444/answer/delete/" + id,
+        axios.delete(apiUrl+"answer/delete/" + id,
         {
             data: {
                 user: currentUser._id,
@@ -76,7 +78,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const upvoteClick = (id:any) => {
-        axios.put("http://localhost:4444/answer/upvote/" + id,{
+        axios.put(apiUrl+"answer/upvote/" + id,{
             user: currentUser._id,
         })
         .then((res) => {
@@ -88,7 +90,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const downvoteClick = (id:any) => { 
-        axios.put("http://localhost:4444/answer/downvote/" + id,{
+        axios.put(apiUrl+"answer/downvote/" + id,{
             user: currentUser._id,
         })
         .then((res) => {

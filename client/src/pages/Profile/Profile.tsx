@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Profile.css";
+import apiContext from "../../context/apiContext";
 
 const Profile = () => {
   const {id : userId} = useParams();
   const [userData, setUserData] = useState({} as any);
   const [points, setPoints] = useState(0);
+  const {apiUrl}:any = useContext(apiContext)
   let Gold =0;
   let Silver =0;
   let Bronze =0;
@@ -45,7 +47,7 @@ const Profile = () => {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:4444/user/" + userId)
+      .get(apiUrl+"user/" + userId)
       .then((res: any) => {
         setUserData(res.data);
         setPoints(res.data?.points.questionsPoints*10 + res.data?.points.answersPoints*5 + res.data?.points.questionUpvotesPoints*2 + res.data?.points.questionDownvotesPoints + res.data?.points.acceptedanswersPoints*15 + res.data?.points.answerUpvotesPoints*5 + res.data?.points.answerDownvotesPoints*2);
