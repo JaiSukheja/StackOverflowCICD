@@ -12,12 +12,7 @@ const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
 const userRoute = require("./routes/user");
 
-mongoose.connect(mongoUrl,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-})
+mongoose.connect(mongoUrl)
     .then(() => {
         console.log('Connected to MongoDB');
     })
