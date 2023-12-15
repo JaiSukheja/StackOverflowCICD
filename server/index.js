@@ -7,7 +7,8 @@ const dotenv = require('dotenv').config();
 const cors = require('cors')
 const port = process.env.PORT || 4444;
 const mongoUrl = process.env.MONGO_URL;
-const Question = require("./models/question");
+const Question = require("./model/Question");
+
 
 const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
