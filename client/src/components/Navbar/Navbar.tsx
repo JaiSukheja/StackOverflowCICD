@@ -5,11 +5,13 @@ import UserContext from "../../context/userContext"
 import axios from "axios"
 
 import logoimg from "../../assets/Stack_Overflow.png"
+import apiContext from "../../context/apiContext"
 
 const Navbar = () => {
     const {username,setUsername,isLoggedIn,setIsLoggedIn,token,setToken,userId}:any = useContext(UserContext)
+    const  apiUrl  = useContext(apiContext)
     const handleLogout = async () => {
-        axios.put("http://localhost:4444/user/logout/" + token)
+        axios.put(apiUrl+"/user/logout/" + token)
         .then((res) => {
             console.log(res.data)
             localStorage.removeItem("StackOverflowToken")
