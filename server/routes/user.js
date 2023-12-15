@@ -20,6 +20,7 @@ router.post("/signup", async (req,res)=>{
         const user = await newUser.save();
         res.status(200).json(user);
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -37,6 +38,7 @@ router.post("/login", async (req,res)=>{
 
         res.status(200).json(user);
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }    
 });
@@ -52,6 +54,7 @@ router.put("/logout/:id", async (req,res)=>{
 
         res.status(200).json("User has been logged out");
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }    
 });
@@ -64,6 +67,7 @@ router.get("/loggedin/:id", async (req,res)=>{
 
         res.status(200).json(user.isLoggedin);
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }    
 });
@@ -74,6 +78,7 @@ router.get("/all", async (req,res)=>{
         const users = await User.find();
         res.status(200).json(users);
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -84,6 +89,7 @@ router.get("/:id", async (req,res)=>{
         const user = await User.findById(req.params.id);
         res.status(200).json(user);
     }catch(err){
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -96,6 +102,8 @@ router.get("/points/:id", async (req,res)=>{
         const totalPoints = user.points.questions*10 + user.points.answers*20 + user.points.acceptedanswers*15 + user.points.questionUpvotes*2 + user.points.questionDownvotes*(-1) + user.points.answerUpvotes*5 + user.points.answerDownvotes*(-2); 
         res.status(200).json(totalPoints);
     }catch(err){
+        console.log(err)
+        console.log(err)
         res.status(500).json(err);
     }
 });

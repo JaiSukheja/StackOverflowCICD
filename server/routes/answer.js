@@ -14,6 +14,7 @@ router.post('/:id', async (req, res) => {
         await User.findByIdAndUpdate(req.body.user, { $push: { answers: savedAnswer._id } });
         res.status(200).json(savedAnswer);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -30,6 +31,7 @@ router.get('/:id', async (req, res) => {
         );
         res.status(200).json(answers);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });
@@ -50,6 +52,7 @@ router.delete('/delete/:id', async (req, res) => {
             res.status(403).json("You can delete only your answer");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });
@@ -69,6 +72,7 @@ router.post('/accept/:id', async (req, res) => {
             res.status(403).json("You can accept only your answer");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });
@@ -86,6 +90,7 @@ router.put('/edit/:id', async (req, res) => {
             res.status(403).json("You can edit only your answer");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });
@@ -105,6 +110,7 @@ router.put('/upvote/:id', async (req, res) => {
             res.status(200).json("The answer has been unupvoted");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });
@@ -124,6 +130,7 @@ router.put('/downvote/:id', async (req, res) => {
             res.status(200).json("The answer has been undownvoted");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 });

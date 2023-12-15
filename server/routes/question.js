@@ -30,6 +30,7 @@ router.put('/edit/:id', async (req, res) => {
             res.status(403).json("You can update only your question");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -42,6 +43,7 @@ router.get('/', async (req, res) => {
         const questions = await Question.find();
         res.status(200).json(questions);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -56,6 +58,7 @@ router.put('/:id', async (req, res) => {
             await question.updateOne({ $push: { views: req.body.userId } });
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -72,6 +75,7 @@ router.put('/:id', async (req, res) => {
             res.status(403).json("You can update only your question");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -112,6 +116,7 @@ router.put('/:id/upvote', async (req, res) => {
             res.status(200).json("The question has been unupvoted");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -131,6 +136,7 @@ router.put('/:id/downvote', async (req, res) => {
             res.status(200).json("The question has been undownvoted");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -150,6 +156,7 @@ router.put('/:id/report', async (req, res) => {
             res.status(200).json("The question has been unreported");
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -161,6 +168,7 @@ router.get('/reported', async (req, res) => {
         const questions = await Question.find({ reports: { $ne: [] } });
         res.status(200).json(questions);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -172,6 +180,7 @@ router.get('/user/:userId', async (req, res) => {
         const questions = await Question.find({ userId: req.params.userId });
         res.status(200).json(questions);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -183,6 +192,7 @@ router.get('/tag/:tag', async (req, res) => {
         const questions = await Question.find({ tags: req.params.tag });
         res.status(200).json(questions);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -194,6 +204,7 @@ router.get('/title/:title', async (req, res) => {
         const questions = await Question.find({ title: req.params.title });
         res.status(200).json(questions);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
@@ -205,6 +216,7 @@ router.get('/:id', async (req, res) => {
         const question = await Question.findById(req.params.id);
         res.status(200).json(question);
     } catch (error) {
+        console.log(error)
         res.status(500).json(error);
     }
 }
