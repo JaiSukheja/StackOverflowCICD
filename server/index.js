@@ -24,7 +24,7 @@ const connect = async () => {
 }
 app.use(
     cors({
-        origin: "*"
+        origin: ["http://localhost:5173","https://stack-overflow-orcin.vercel.app","https://stack-overflow-ooauwbu6n-jaisukhejas-projects.vercel.app"]
     }));
         
 app.use(express.json());
