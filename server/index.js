@@ -7,6 +7,7 @@ const dotenv = require('dotenv').config();
 const cors = require('cors')
 const port = process.env.PORT || 4444;
 const mongoUrl = process.env.MONGO_URL;
+const Question = require("./models/question");
 
 const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
@@ -31,8 +32,14 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
+app.get('/', async (req, res) => {
+    try {
+        const questions = await Question.find();
+        res.status(200).json(questions);
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error);
+    }
 })
 
 app.use("/question", QuestionRoute);
