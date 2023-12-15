@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 const cors = require('cors')
-const port = process.env.PORT;
+const port = process.env.PORT || 4444;
 const mongoUrl = process.env.MONGO_URL;
 
 const QuestionRoute = require("./routes/Question");
