@@ -7,7 +7,7 @@ const Question = (props:any) => {
     const [username,setUsername] = useState("")
     const {apiUrl}:any = useContext(apiContext)
     useEffect(() => {
-        axios.get(apiUrl+"user/"+props.data.user)
+        axios.get(apiUrl+"/user/"+props.data.user)
         .then((res:any) => {
             setUsername(res.data.username)
         })

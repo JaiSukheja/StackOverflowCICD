@@ -23,7 +23,7 @@ const ViewQuestion = () => {
     
 
     useEffect(() => {
-        axios.put(apiUrl+"question/" + qid, {
+        axios.put(apiUrl+"/question/" + qid, {
                 userId: currentUser?._id,
             })
             .then((res) => {
@@ -41,7 +41,7 @@ const ViewQuestion = () => {
     }, [reset]);
     useEffect(() => {
         axios
-            .get(apiUrl+"answer/" + qid)
+            .get(apiUrl+"/answer/" + qid)
             .then((res) => {
                 setAnswers(res.data);
             })
@@ -53,7 +53,7 @@ const ViewQuestion = () => {
     const upvoteClick = () => {
         console.log(currentUser)
         axios
-            .put(apiUrl+"question/" + question._id + "/upvote", {
+            .put(apiUrl+"/question/" + question._id + "/upvote", {
                 userId: currentUser._id,
             })
             .then((res) => {
@@ -68,7 +68,7 @@ const ViewQuestion = () => {
     const downvoteClick = () => {
         console.log(currentUser)
         axios
-            .put(apiUrl+"question/" + question._id + "/downvote", {
+            .put(apiUrl+"/question/" + question._id + "/downvote", {
                 userId: currentUser._id,
             })
             .then((res) => {

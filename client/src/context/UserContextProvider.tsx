@@ -21,7 +21,7 @@ const UserContextProvider = ({children}:any) => {
             setUsername(username)
             setToken(token)
         }
-        token? axios.get(apiUrl+"user/"+token)
+        token? axios.get(apiUrl+"/user/"+token)
         .then((res) => {
             setUserId(res.data._id)
             setUser(res.data)

@@ -12,7 +12,7 @@ const Navbar = () => {
     const { apiUrl }:any = useContext(apiContext)
     // console.log(apiUrl)
     const handleLogout = async () => {
-        axios.put(apiUrl+"user/logout/" + token)
+        axios.put(`${apiUrl}/user/logout/${token}`)
         .then((res) => {
             console.log(res.data)
             localStorage.removeItem("StackOverflowToken")

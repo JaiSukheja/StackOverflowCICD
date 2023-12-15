@@ -13,7 +13,7 @@ const Signup = () => {
   const [password,setPassword] = useState("")
   const {apiUrl}:any = useContext(apiContext)
   const handleSignup = async () => {
-    axios.post(apiUrl+"user/signup",{username,email,password})
+    axios.post(apiUrl+"/user/signup",{username,email,password})
     .then((res) => {
       console.log(res.data)
       setEmail("")

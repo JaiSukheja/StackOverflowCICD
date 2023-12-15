@@ -16,7 +16,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     const [edit, setEdit] = useState(false);
     const handleClick = () => {
         axios
-            .post(apiUrl+"answer/" + question._id, {
+            .post(`${apiUrl}/answer/${question._id}`, {
                 text: text,
                 user: currentUser._id,
                 questionId: question._id,
@@ -32,7 +32,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     };
     const handleAccept = (id: any) => {
         axios
-            .post(apiUrl+"answer/accept/" + id, {
+            .post(`${apiUrl}/answer/accept/` + id, {
                 questionId: question._id,
             })
             .then((res) => {
@@ -45,7 +45,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
             });
     };
     const editClick = () => {
-        axios.put(apiUrl+"answer/edit/" + edit,{
+        axios.put(`${apiUrl}/answer/edit/` + edit,{
             text: text,
             user: currentUser._id,
             questionId: question._id,
@@ -61,7 +61,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const deleteClick = (id:any) => {
-        axios.delete(apiUrl+"answer/delete/" + id,
+        axios.delete(`${apiUrl}/answer/delete/` + id,
         {
             data: {
                 user: currentUser._id,
@@ -78,7 +78,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const upvoteClick = (id:any) => {
-        axios.put(apiUrl+"answer/upvote/" + id,{
+        axios.put(`${apiUrl}/answer/upvote/` + id,{
             user: currentUser._id,
         })
         .then((res) => {
@@ -90,7 +90,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         })
     };
     const downvoteClick = (id:any) => { 
-        axios.put(apiUrl+"answer/downvote/" + id,{
+        axios.put(`${apiUrl}/answer/downvote/` + id,{
             user: currentUser._id,
         })
         .then((res) => {

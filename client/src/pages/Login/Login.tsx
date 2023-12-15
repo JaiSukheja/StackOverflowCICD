@@ -14,7 +14,7 @@ const Login = () => {
   const {apiUrl}:any = useContext(apiContext)
 
   const handleLogin = async () => {
-    axios.post(apiUrl+"user/login",{email,password})
+    axios.post(apiUrl+"/user/login",{email,password})
     .then((res) => {
       // console.log(res.data)
       setIsLoggedIn(true)

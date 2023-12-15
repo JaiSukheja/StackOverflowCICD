@@ -21,7 +21,7 @@ const AskQuestion = () => {
     const [text, setText] = useState("")
     const [tags, setTags] = useState("")
     const handleClick = () => {
-        axios.post(apiUrl+"question", {
+        axios.post(apiUrl+"/question", {
             title: title,
             text: text,
             tags: tags.split(" "),
@@ -36,7 +36,7 @@ const AskQuestion = () => {
     }
 
     const editClick = () => {
-        axios.put(apiUrl+"question/edit/" + id, {
+        axios.put(apiUrl+"/question/edit/" + id, {
             title: title,
             text: text,
             tags: tags.split(" "),
@@ -52,7 +52,7 @@ const AskQuestion = () => {
 
     useEffect(() => {
         if(id){
-            axios.get(apiUrl+"question/" + id)
+            axios.get(apiUrl+"/question/" + id)
             .then((res) => {
                 setTitle(res.data.title)
                 setText(res.data.text)

@@ -47,7 +47,7 @@ const Profile = () => {
   }
   useEffect(() => {
     axios
-      .get(apiUrl+"user/" + userId)
+      .get(apiUrl+"/user/" + userId)
       .then((res: any) => {
         setUserData(res.data);
         setPoints(res.data?.points.questionsPoints*10 + res.data?.points.answersPoints*5 + res.data?.points.questionUpvotesPoints*2 + res.data?.points.questionDownvotesPoints + res.data?.points.acceptedanswersPoints*15 + res.data?.points.answerUpvotesPoints*5 + res.data?.points.answerDownvotesPoints*2);

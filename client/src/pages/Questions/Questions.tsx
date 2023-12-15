@@ -9,7 +9,7 @@ const Questions = () => {
     const [QuestionArray, setQuestionArray] = useState([]);
     const {apiUrl}:any = useContext(apiContext)
     useEffect(() => {
-        axios.get(apiUrl+"question").then((res) => {
+        axios.get(apiUrl+"/question/").then((res) => {
             setQuestionArray(res.data.reverse());
             // console.log(res);
         }).catch((err) => {
