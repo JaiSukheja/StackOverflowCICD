@@ -8,7 +8,7 @@ const cors = require('cors')
 const port = process.env.PORT || 4444;
 const mongoUrl = process.env.MONGO_URL;
 
-const QuestionRoute = require("./routes/Question");
+const QuestionRoute = require("./routes/question");
 const AnswerRoute = require("./routes/answer");
 const userRoute = require("./routes/user");
 
