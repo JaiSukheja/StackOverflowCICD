@@ -103,7 +103,7 @@ const ViewQuestion = () => {
                                 <button className="viewQuestionBtn"
                                 onClick={
                                     () => {
-                                        axios.delete(apiUrl+"question/" + qid,
+                                        axios.delete(apiUrl+"/question/" + qid,
                                         {data:{
                                             user: currentUser._id,
                                         }})
