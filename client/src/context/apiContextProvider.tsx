@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import apiContext from "./apiContext";
-import axios from "axios";
 
 
 
 const ApiContextProvider = ({ children }:any) => {
-    const [apiUrl,setApiUrl] = useState("http://localhost:4444")
+    const [apiUrl,setApiUrl] = useState("https://stackoverflowserver-kfph.onrender.com")
 
-    useEffect(() => {
-        axios.get("https://stackoverflowserver-kfph.onrender.com")
-        .then(async (res) => {
-            (res.data==="Server is up and running") ? setApiUrl("https://stackoverflowserver-kfph.onrender.com"): setApiUrl("http://localhost:4444");
-            res.data ? console.log(res.data): console.log("error")
-        })
-        .catch((err) => {
-            console.log(err)
-        })  
-    }, [])
 
     return (
         <apiContext.Provider value={{apiUrl,setApiUrl}}>
