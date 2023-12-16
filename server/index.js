@@ -33,13 +33,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.get('/', async (req, res) => {
-    try {
-        const questions = await Question.find();
-        res.status(200).json(questions);
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error);
-    }
+    res.send("Server is up and running")
 })
 
 app.use("/question", QuestionRoute);
