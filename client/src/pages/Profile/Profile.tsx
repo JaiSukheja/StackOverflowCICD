@@ -102,7 +102,7 @@ const Profile = () => {
                 {t("profile.location")}: India
               </div>
               <div className="profileReputaion">
-                {t("profile.reputation")}: {t(`profile.${reputation}`)}
+                {t("profile.reputation")}: {t(`profile.badgeNames.${reputation}`)}
               </div>
               <button className="editProfileBtn">
                 {t("profile.editProfile")}
