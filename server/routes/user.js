@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require('../model/User')
 const bcrypt = require('bcrypt')
+const UAParser = require('ua-parser-js');
 
 // Signup
 router.post("/signup", async (req,res)=>{
@@ -26,22 +27,79 @@ router.post("/signup", async (req,res)=>{
 });
 
 // LOGIN
-router.post("/login", async (req,res)=>{
-    try{
-        const user = await User.findOne({email:req.body.email});
-        !user && res.status(404).send("User not found");
+// router.post("/login", async (req,res)=>{
+//     try{
+//         const user = await User.findOne({email:req.body.email});
+//         !user && res.status(404).send("User not found");
 
-        const validPassword = await bcrypt.compare(req.body.password , user.password);
-        !validPassword && res.status(400).json("Wrong password")
+//         const validPassword = await bcrypt.compare(req.body.password , user.password);
+//         !validPassword && res.status(400).json("Wrong password")
         
-        await user.updateOne({ $set: { isLoggedin: true } });
+//         await user.updateOne({ $set: { isLoggedin: true } });
 
-        res.status(200).json(user);
-    }catch(err){
-        console.log(err)
-        res.status(500).json(err);
-    }    
-});
+//         res.status(200).json(user);
+//     }catch(err){
+//         console.log(err)
+//         res.status(500).json(err);
+//     }    
+// });
+router.post("/login", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(404).send("User not found");
+      }
+  
+      const validPassword = await bcrypt.compare(password, user.password);
+  
+      if (!validPassword) {
+        return res.status(400).json("Wrong password");
+      }
+  
+      const ua = req.headers["user-agent"];
+      const parser = new UAParser();
+      parser.setUA(ua);
+      const result = parser.getResult();
+  
+      const loginHistory = {
+        ipAddress: req.ip,
+        ua: ua,
+        browser: {
+          name: result.browser.name,
+          version: result.browser.version,
+          major: result.browser.major,
+        },
+        engine: {
+          name: result.engine.name,
+          version: result.engine.version,
+        },
+        os: {
+          name: result.os.name,
+          version: result.os.version,
+        },
+        device: JSON.stringify({
+            model: result.device.model, 
+            type: result.device.type, 
+            vendor: result.device.vendor, 
+        }),
+        cpu: {
+          architecture: result.cpu.architecture,
+        },
+      };
+      await user.updateOne({
+        $set: { isLoggedin: true },
+        $push: { loginHistory: loginHistory }, 
+      });
+  
+      res.status(200).json(user);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+    }
+  });
+  
 
 // LOGOUT
 router.put("/logout/:id", async (req,res)=>{
