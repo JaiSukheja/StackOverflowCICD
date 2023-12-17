@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Profile.css";
 import apiContext from "../../context/apiContext";
@@ -104,9 +104,9 @@ const Profile = () => {
               <div className="profileReputaion">
                 {t("profile.reputation")}: {t(`profile.badgeNames.${reputation}`)}
               </div>
-              <button className="editProfileBtn">
+              <Link className="editProfileBtn" to={"/editProfile"}>
                 {t("profile.editProfile")}
-              </button>
+              </Link>
             </div>
             <div className="profileBioBox">
             <div className="profileMedalsHeader">Login Information</div>
