@@ -7,8 +7,10 @@ import axios from "axios";
 import UserContext from "../../context/userContext";
 import ViewAnswers from "../../components/ViewAnswers/ViewAnswers";
 import apiContext from "../../context/apiContext";
+import { useTranslation } from "react-i18next";
 
 const ViewQuestion = () => {
+    const { t } = useTranslation();
     const [reset, setReset] = useState<any>(false);
     const [shareModal, setShareModal] = useState<any>(false);
     const [copyMessage, setCopyMessage] = useState<any>(false);
@@ -19,8 +21,6 @@ const ViewQuestion = () => {
     const [downvote, setDownvote] = useState(false);
     const { user:currentUser }: any = useContext(UserContext);
     const {apiUrl}:any = useContext(apiContext);
-
-    
 
     useEffect(() => {
         axios.put(apiUrl+"/question/" + qid, {
@@ -99,10 +99,9 @@ const ViewQuestion = () => {
                     <div className="viewQuestionBtns">
                         {currentUser?._id === question?.user ? (
                             <>
-                                <Link to={"/edit/" + qid} className="viewQuestionBtn">Edit</Link>
+                                <Link to={"/edit/" + qid} className="viewQuestionBtn">{t('viewQuestion.edit')}</Link>
                                 <button className="viewQuestionBtn"
-                                onClick={
-                                    () => {
+                                    onClick={() => {
                                         axios.delete(apiUrl+"/question/" + qid,
                                         {data:{
                                             user: currentUser._id,
@@ -114,27 +113,25 @@ const ViewQuestion = () => {
                                         .catch((err) => {
                                             console.log(err);
                                         });
-                                    }
-                                }
-                                >Delete</button>
+                                    }}
+                                >
+                                    {t('viewQuestion.delete')}
+                                </button>
                             </>
                         ) : (
-                            <Link to={"/askQuestion"} className="viewQuestionBtn">Ask Question</Link>
+                            <Link to={"/askQuestion"} className="viewQuestionBtn">{t('viewQuestion.askQuestion')}</Link>
                         )}
                     </div>
                 </div>
                 <div className="viewQuestionDetails">
-                    {/* <pre className="viewQuestionDetail">
-                        Asked By <span className="viewQuestionDetailValue">{question?.user}</span>
-                    </pre> */}
                     <pre className="viewQuestionDetail">
-                        Asked{" "}
+                        {t('viewQuestion.asked')}{" "}
                         <span className="viewQuestionDetailValue">
                             {new Date(question?.createdAt).toLocaleDateString()}
                         </span>
                     </pre>
                     <pre className="viewQuestionDetail">
-                        Modified{" "}
+                        {t('viewQuestion.modified')}{" "}
                         <span className="viewQuestionDetailValue">
                             {question?.updatedAt
                                 ? new Date(question?.updatedAt).toLocaleDateString()
@@ -142,7 +139,7 @@ const ViewQuestion = () => {
                         </span>
                     </pre>
                     <pre className="viewQuestionDetail">
-                        Viewed{" "}
+                        {t('viewQuestion.viewed')}{" "}
                         <span className="viewQuestionDetailValue">
                             {question?.views.length}
                         </span>
@@ -190,16 +187,16 @@ const ViewQuestion = () => {
                                         setShareModal(!shareModal);
                                     }}
                                 >
-                                    Share
+                                    {t('viewQuestion.share')}
                                 </span>
                             </div>
                             <div className="viewQuestionLink">
                                 <i className="bx bxs-flag-alt"></i>
-                                <span className="viewQuestionLinkName">Report</span>
+                                <span className="viewQuestionLinkName">{t('viewQuestion.report')}</span>
                             </div>
                             <div className="viewQuestionLink">
                                 <i className="bx bx-bookmark-alt"></i>
-                                <span className="viewQuestionLinkName">Bookmark</span>
+                                <span className="viewQuestionLinkName">{t('viewQuestion.bookmark')}</span>
                             </div>
                         </div>
                     </div>
@@ -207,7 +204,7 @@ const ViewQuestion = () => {
                 {shareModal && (
                     <div className="shareModal">
                         <div className="shareModalContainer">
-                            <div className="shareModalHeading">Copy link</div>
+                            <div className="shareModalHeading">{t('viewQuestion.copyLink')}</div>
                             <div className="shareModalLink">{window.location.href}</div>
                             <div className="shareModalBtns">
                                 <button
@@ -217,7 +214,7 @@ const ViewQuestion = () => {
                                         setCopyMessage(true);
                                     }}
                                 >
-                                    <i className="bx bx-copy-alt"></i> Copy
+                                    <i className="bx bx-copy-alt"></i> {t('viewQuestion.copy')}
                                 </button>
                                 <button
                                     className="shareModalBtn"
@@ -227,18 +224,18 @@ const ViewQuestion = () => {
                                     }}
                                 >
                                     <i className="bx bx-x"></i>
-                                    Close
+                                    {t('viewQuestion.close')}
                                 </button>
                             </div>
                             {copyMessage && (
-                                <div className="copyMessage">Link copied to clipboard!</div>
+                                <div className="copyMessage">{t('viewQuestion.linkCopied')}</div>
                             )}
                         </div>
                     </div>
                 )}
                 <ViewAnswers answers={answers} question={question} reset={reset}  setReset={setReset}/>
                 <div className="relatedQuestions">
-                    <span>Browse other questions tagged</span>
+                    <span>{t('viewQuestion.browseOtherQuestionsTagged')}</span>
                     <span className="viewQuestionTags">
                         {question?.tags.map((item: any, idx: number) => {
                             return (
@@ -248,9 +245,9 @@ const ViewQuestion = () => {
                             );
                         })}
                     </span>
-                    or{" "}
+                    {t('viewQuestion.or')}{" "}
                     <Link to="/askquestion" className="askQuestionLink">
-                        ask your own question.
+                        {t('viewQuestion.askYourOwnQuestion')}
                     </Link>
                 </div>
             </div>

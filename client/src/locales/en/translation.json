@@ -1,0 +1,148 @@
+{    
+  "navbar": {
+      "about": "About",
+      "product": "Product",
+      "forTeams": "For Teams",
+      "searchPlaceholder": "Search...",
+      "login": "Log in",
+      "signup": "Sign up",
+      "logout": "Logout"
+    },
+    "footer": {
+      "copyright": "© 2023 StackOverflow Clone. All rights reserved."
+    },
+    "question": {
+      "votes": "votes",
+      "answers": "answers",
+      "views": "views",
+      "asked_by": "asked by",
+      "on": "on"
+    },
+    "sidebar": {
+      "home": "Home",
+      "questions": "Questions",
+      "tags": "Tags",
+      "users": "Users",
+      "companies": "Companies"
+    },
+    "viewAnswers": {
+      "answers": "Answers",
+      "answered": "Answered",
+      "active": "Active",
+      "share": "Share",
+      "report": "Report",
+      "bookmark": "Bookmark",
+      "edit": "Edit",
+      "delete": "Delete",
+      "unaccept_answer": "Unaccept Answer",
+      "accept_answer": "Accept Answer",
+      "copy_link": "Copy link",
+      "copy": "Copy",
+      "close": "Close",
+      "link_copied": "Link copied to clipboard",
+      "your_answer": "Your Answer",
+      "post_your_answer": "Post Your Answer",
+      "type_your_answer": "Type your answer here"
+    },
+    "askQuestion": {
+      "heading": "Ask a Public Question",
+      "title": "Title",
+      "titleDescription": "Be specific and imagine you’re asking a question to another person",
+      "titlePlaceholder": "e.g. Is there an R function for finding the index of an element in a vector?",
+      "body": "Body",
+      "bodyDescription": "Include all the information someone would need to answer your question",
+      "bodyPlaceholder": "e.g. I'm trying to use the reshape package in R, but I'm having trouble finding the melt function. Anyone have any pointers?",
+      "tags": "Tags",
+      "tagsDescription": "Add up to 5 tags to describe what your question is about",
+      "tagsPlaceholder": "e.g. (reactjs javascript html css)",
+      "post": "Post Your Question"
+    },
+    "editQuestion": {
+      "heading": "Edit a Public Question",
+      "post": "Edit Your Question"
+    },
+    "login": {
+      "email": "Email",
+      "enterEmail": "Enter your Email",
+      "password": "Password",
+      "enterPassword": "Enter your Password",
+      "login": "Log in",
+      "forgotPassword": "Forgot Password?",
+      "noAccount": "Don’t have an account?",
+      "signup": "Sign up"
+    },
+    "notFound": {
+      "newFunctionality": "New Functionality Coming Soon!"
+    },
+    "profile": {
+      "memberFor": "Member for",
+      "lastActivity": "Last Activity",
+      "location": "Location",
+      "reputation": "Reputation",
+      "expert": "Expert",
+      "editProfile": "Edit Profile",
+      "bioText": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati suscipit reprehenderit nam non tempore totam, delectus deserunt, excepturi exercitationem sed sequi deleniti pariatur ducimus provident rerum, adipisci distinctio magni explicabo quisquam?",
+      "medals": "Medals",
+      "questions": "Questions",
+      "answers": "Answers",
+      "points": "Points",
+      "badges": "Badges",
+      "badgeNames": {
+        "newbie": "Newbie",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "expert": "Expert",
+        "master": "Master"
+      }
+    },
+    "questions": {
+      "allQuestions": "All Questions",
+      "askQuestion": "Ask Question"
+    },
+    "signup": {
+      "joinCommunity": "Join the Stack Overflow community",
+      "getUnstuck": "Get unstuck — ask a question",
+      "unlockPrivileges": "Unlock new privileges like voting and commenting",
+      "saveFavorites": "Save your favorite tags, filters, and jobs",
+      "earnReputation": "Earn reputation and badges",
+      "username": "Username",
+      "enterUsername": "Enter your Username",
+      "email": "Email",
+      "enterEmail": "Enter your Email",
+      "password": "Password",
+      "enterPassword": "Enter your Password",
+      "signup": "Sign Up",
+      "byClicking": "By clicking “Sign up”, you agree to our",
+      "termsOfService": "terms of service",
+      "privacyPolicy": "privacy policy",
+      "cookiePolicy": "cookie policy",
+      "and": "and",
+      "alreadyHaveAccount": "Already have an account?",
+      "logIn": "Log In"
+    },
+    "tags": {
+      "tags": "Tags",
+      "tagDescription": "A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question."
+    },
+    "viewQuestion": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "askQuestion": "Ask Question",
+      "asked": "Asked",
+      "modified": "Modified",
+      "viewed": "Viewed",
+      "share": "Share",
+      "report": "Report",
+      "bookmark": "Bookmark",
+      "copyLink": "Copy Link",
+      "copy": "Copy",
+      "close": "Close",
+      "linkCopied": "Link copied to clipboard!",
+      "browseOtherQuestionsTagged": "Browse other questions tagged",
+      "or": "or",
+      "askYourOwnQuestion": "ask your own question."
+    }
+  }
+
+  

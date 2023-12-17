@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "about": "À propos",
+    "product": "Produit",
+    "forTeams": "Pour les équipes",
+    "searchPlaceholder": "Rechercher...",
+    "login": "Se connecter",
+    "signup": "S'inscrire",
+    "logout": "Se déconnecter"
+  },
+  "footer": {
+    "copyright": "© 2023 Clone de StackOverflow. Tous droits réservés."
+  },
+  "question": {
+    "votes": "votes",
+    "answers": "réponses",
+    "views": "vues",
+    "asked_by": "posée par",
+    "on": "le"
+  },
+  "sidebar": {
+    "home": "Accueil",
+    "questions": "Questions",
+    "tags": "Étiquettes",
+    "users": "Utilisateurs",
+    "companies": "Entreprises"
+  },
+  "viewAnswers": {
+    "answers": "Réponses",
+    "answered": "Répondu",
+    "active": "Actif",
+    "share": "Partager",
+    "report": "Signaler",
+    "bookmark": "Ajouter aux favoris",
+    "edit": "Éditer",
+    "delete": "Supprimer",
+    "unaccept_answer": "Annuler l'acceptation de la réponse",
+    "accept_answer": "Accepter la réponse",
+    "copy_link": "Copier le lien",
+    "copy": "Copier",
+    "close": "Fermer",
+    "link_copied": "Lien copié dans le presse-papiers",
+    "your_answer": "Votre réponse",
+    "post_your_answer": "Poster votre réponse",
+    "type_your_answer": "Écrivez votre réponse ici"
+  },
+  "askQuestion": {
+    "heading": "Poser une question publique",
+    "title": "Titre",
+    "titleDescription": "Soyez précis et imaginez que vous posez une question à une autre personne",
+    "titlePlaceholder": "ex. Y a-t-il une fonction R pour trouver l'index d'un élément dans un vecteur?",
+    "body": "Corps",
+    "bodyDescription": "Incluez toutes les informations dont quelqu'un aurait besoin pour répondre à votre question",
+    "bodyPlaceholder": "ex. J'essaie d'utiliser le package reshape en R, mais j'ai du mal à trouver la fonction melt. Quelqu'un a des conseils?",
+    "tags": "Étiquettes",
+    "tagsDescription": "Ajoutez jusqu'à 5 étiquettes pour décrire de quoi parle votre question",
+    "tagsPlaceholder": "ex. (reactjs javascript html css)",
+    "post": "Publier votre question"
+  },
+  "editQuestion": {
+    "heading": "Modifier une question publique",
+    "post": "Modifier votre question"
+  },
+  "login": {
+    "email": "Email",
+    "enterEmail": "Entrez votre e-mail",
+    "password": "Mot de passe",
+    "enterPassword": "Entrez votre mot de passe",
+    "login": "Se connecter",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "signup": "S'inscrire"
+  },
+  "notFound": {
+    "newFunctionality": "Nouvelle fonctionnalité bientôt disponible !"
+  },
+  "profile": {
+    "memberFor": "Membre depuis",
+    "lastActivity": "Dernière activité",
+    "location": "Localisation",
+    "reputation": "Réputation",
+    "expert": "Expert",
+    "editProfile": "Éditer le profil",
+    "bioText": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati suscipit reprehenderit nam non tempore totam, delectus deserunt, excepturi exercitationem sed sequi deleniti pariatur ducimus provident rerum, adipisci distinctio magni explicabo quisquam?",
+    "medals": "Médailles",
+    "questions": "Questions",
+    "answers": "Réponses",
+    "points": "Points",
+    "badges": "Badges",
+    "badgeNames": {
+      "newbie": "Nouveau",
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé",
+      "expert": "Expert",
+      "master": "Maître"
+    }
+  },
+  "questions": {
+    "allQuestions": "Toutes les questions",
+    "askQuestion": "Poser une question"
+  },
+  "signup": {
+    "joinCommunity": "Rejoignez la communauté Stack Overflow",
+    "getUnstuck": "Libérez-vous — posez une question",
+    "unlockPrivileges": "Débloquez de nouveaux privilèges comme voter et commenter",
+    "saveFavorites": "Enregistrez vos tags, filtres et emplois préférés",
+    "earnReputation": "Gagnez de la réputation et des badges",
+    "username": "Nom d'utilisateur",
+    "enterUsername": "Entrez votre nom d'utilisateur",
+    "email": "E-mail",
+    "enterEmail": "Entrez votre e-mail",
+    "password": "Mot de passe",
+    "enterPassword": "Entrez votre mot de passe",
+    "signup": "S'inscrire",
+    "byClicking": "En cliquant sur “S'inscrire”, vous acceptez nos",
+    "termsOfService": "conditions de service",
+    "privacyPolicy": "politique de confidentialité",
+    "cookiePolicy": "politique des cookies",
+    "and": "et",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "logIn": "Connexion"
+  },
+  "tags": {
+    "tags": "Étiquettes",
+    "tagDescription": "Une étiquette est un mot-clé ou une étiquette qui catégorise votre question avec d'autres questions similaires. Utiliser les bonnes étiquettes facilite la recherche et la réponse à votre question par d'autres utilisateurs."
+  },
+  "viewQuestion": {
+    "edit": "Éditer",
+    "delete": "Supprimer",
+    "askQuestion": "Poser une question",
+    "asked": "Posée",
+    "modified": "Modifiée",
+    "viewed": "Vue",
+    "share": "Partager",
+    "report": "Signaler",
+    "bookmark": "Ajouter aux favoris",
+    "copyLink": "Copier le lien",
+    "copy": "Copier",
+    "close": "Fermer",
+    "linkCopied": "Lien copié dans le presse-papiers !",
+    "browseOtherQuestionsTagged": "Parcourir d'autres questions marquées",
+    "or": "ou",
+    "askYourOwnQuestion": "poser votre propre question."
+  }
+}

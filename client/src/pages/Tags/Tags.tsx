@@ -1,6 +1,9 @@
-import Sidebar from "../../components/Sidebar/Sidebar"
-import "./Tags.css"
+import Sidebar from '../../components/Sidebar/Sidebar';
+import './Tags.css';
+import { useTranslation } from 'react-i18next';
+
 const Tags = () => {
+  const { t } = useTranslation();
 
   const tags = [
     {
@@ -79,29 +82,21 @@ const Tags = () => {
 
   return (
     <div className="Tags">
-      <Sidebar activeLink={"tags"}/>
+      <Sidebar activeLink={'tags'} />
       <div className="tagsContainer">
-        <div className="tagsHeading">
-          Tags
-        </div>
-        <div className="tagsSubHeading">
-          A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
-        </div>
+        <div className="tagsHeading">{t('tags.tags')}</div>
+        <div className="tagsSubHeading">{t('tags.tagDescription')}</div>
         <div className="tagsList">
-          {tags.map((tag) => (
-            <div className="tagBox">
-              <div className="tagBoxName">
-                {tag.name}
-              </div>
-              <div className="tagBoxtext">
-                {tag.text}
-              </div>
+          {tags.map((tag, index) => (
+            <div className="tagBox" key={index}>
+              <div className="tagBoxName">{tag.name}</div>
+              <div className="tagBoxtext">{tag.text}</div>
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tags
+export default Tags;

@@ -1,60 +1,53 @@
-import "./Signup.css"
-import { Link } from "react-router-dom"
-import axios from "axios"
-import { useContext, useState } from "react"
-
-import logoimg from "../../assets/logo.png"
-import apiContext from "../../context/apiContext"
-
+import './Signup.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import logoimg from '../../assets/logo.png';
+import apiContext from '../../context/apiContext';
+import { useTranslation } from 'react-i18next';
 
 const Signup = () => {
-  const [username,setUsername] = useState("")
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
-  const {apiUrl}:any = useContext(apiContext)
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { apiUrl }: any = useContext(apiContext);
+  const { t } = useTranslation();
+
   const handleSignup = async () => {
-    axios.post(apiUrl+"/user/signup",{username,email,password})
-    .then((res) => {
-      console.log(res.data)
-      setEmail("")
-      setPassword("")
-      setUsername("")
-      window.location.href = "/login"
-    })
-    .catch((err) => {
-      console.log(err)
-    })    
-  }
+    axios
+      .post(apiUrl + '/user/signup', { username, email, password })
+      .then((res) => {
+        console.log(res.data);
+        setEmail('');
+        setPassword('');
+        setUsername('');
+        window.location.href = '/login';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="signup">
       <div className="signupLeft">
-        <div className="signupLeftHeading">
-          Join the Stack Overflow community
-        </div>
+        <div className="signupLeftHeading">{t('signup.joinCommunity')}</div>
         <div className="subPoints">
           <div className="subPoint">
-            <i className='bx bxs-message-detail'></i>
-            <span>
-              Get unstuck — ask a question
-            </span>
+            <i className="bx bxs-message-detail"></i>
+            <span>{t('signup.getUnstuck')}</span>
           </div>
           <div className="subPoint">
-            <i className='bx bxs-check-circle'></i>
-            <span>
-              Unlock new privileges like voting and commenting
-            </span>
+            <i className="bx bxs-check-circle"></i>
+            <span>{t('signup.unlockPrivileges')}</span>
           </div>
           <div className="subPoint">
-            <i className='bx bxs-user'></i>
-            <span>
-              Save your favorite tags, filters, and jobs
-            </span>
+            <i className="bx bxs-user"></i>
+            <span>{t('signup.saveFavorites')}</span>
           </div>
-          <div className="subPoint"> 
-            <i className='bx bxs-award'></i>
-            <span>
-              Earn reputation and badges
-            </span>
+          <div className="subPoint">
+            <i className="bx bxs-award"></i>
+            <span>{t('signup.earnReputation')}</span>
           </div>
         </div>
       </div>
@@ -62,50 +55,62 @@ const Signup = () => {
         <img src={logoimg} alt="logo" className="signupLogoImg" />
         <div className="signupInputContainer">
           <div className="signupInput">
-            <label htmlFor="Username" className="signupInputLabel">Username</label>
-            <input type="text" placeholder="Enter your Username" onChange={
-              (e) => {
-                setUsername(e.target.value)
-              }
-            } 
-            value={username}
+            <label htmlFor="Username" className="signupInputLabel">
+              {t('signup.username')}
+            </label>
+            <input
+              type="text"
+              placeholder={t('signup.enterUsername')}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={username}
             />
           </div>
           <div className="signupInput">
-            <label htmlFor="Email" className="signupInputLabel">Email</label>
-            <input type="text" placeholder="Enter your Email" onChange={
-              (e) => {
-                setEmail(e.target.value)
-              }
-            } 
-            value={email}
+            <label htmlFor="Email" className="signupInputLabel">
+              {t('signup.email')}
+            </label>
+            <input
+              type="text"
+              placeholder={t('signup.enterEmail')}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
             />
           </div>
           <div className="signupInput">
-            <label htmlFor="Password" className="signupInputLabel">Password</label>
-            <input type="password" placeholder="Enter your Password" onChange={
-              (e) => {
-                setPassword(e.target.value)
-              }
-            } 
-            value={password}
+            <label htmlFor="Password" className="signupInputLabel">
+              {t('signup.password')}
+            </label>
+            <input
+              type="password"
+              placeholder={t('signup.enterPassword')}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
             />
           </div>
           <div className="signupInput">
             <button className="signupbtn" onClick={handleSignup}>
-              Sign Up
-            </button>  
+              {t('signup.signup')}
+            </button>
           </div>
           <div className="signupTerms">
-            By clicking “Sign up”, you agree to our <a href="#">terms of service</a>, <a href="#">privacy policy</a> and <a href="#">cookie policy</a>
+            {t('signup.byClicking')}
+            <a href="#">{t('signup.termsOfService')}</a>,{' '}
+            <a href="#">{t('signup.privacyPolicy')}</a>, {t('signup.and')}{' '}
+            <a href="#">{t('signup.cookiePolicy')}</a>
           </div>
           <div className="signupLogin">
-            Already have an account? <Link to="/login">Log In</Link>
+            {t('signup.alreadyHaveAccount')} <Link to="/login">{t('signup.logIn')}</Link>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
