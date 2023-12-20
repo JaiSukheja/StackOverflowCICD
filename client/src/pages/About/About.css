@@ -488,3 +488,9 @@
         padding: 15px 0 0 0;
     }
 }
+
+@media (max-width: 576px) {
+    .aboutLinksBox{
+        display: none;
+    }
+}
