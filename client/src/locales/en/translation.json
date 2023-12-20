@@ -142,6 +142,32 @@
       "browseOtherQuestionsTagged": "Browse other questions tagged",
       "or": "or",
       "askYourOwnQuestion": "ask your own question."
+    },
+    "about": {
+      "heroTitle": "Empowering the world to develop technology through collective knowledge.",
+      "heroSubtitle": "Our products and tools enable people to ask, share and learn at work or at home.",
+      "dataBoxSubtitle1": "of trusted and high-quality knowledge",
+      "dataBoxSubtitle2": "average time between new questions",
+      "dataBoxSubtitle3": "total questions and answers so far",
+      "dataBoxSubtitle4": "times knowledge has been reused",
+      "trustingCompaniesSubtitle": "Supporting the innovative teams",
+      "contentDesc1": "We’re integrating GenAI into our public platform, Stack Overflow for Teams, and brand new product areas, like an IDE integration that brings knowledge from our community right into the area where developers find focus and get work done.",
+      "learnMore": "Learn More",
+      "whatWeAreWorkingOn": "What we are Working on >",
+      "contentDesc2": "We’re best known for our public Q&A platform that over 100 million people visit every month to ask questions, learn, and share technical knowledge. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate at est deserunt non totam iure ab nesciunt illum, necessitatibus rerum natus quasi, dolorum doloribus possimus. Consequatur id pariatur soluta laudantium?",
+      "joinCommunity": "Join community",
+      "contentDesc3": "Where developers and technologists share private knowledge with coworkers. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, fugit laudantium. Ex amet, nulla eaque corrupti veniam possimus deleniti deserunt consectetur cumque quidem cupiditate commodi repellendus eius dolor doloribus sint!",
+      "talkToExpert": "Talk to Expert >",
+      "contentDesc4": "Reach the world’s largest audience of developers and technologists. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quisquam modi nihil numquam magnam, veritatis accusantium quia aperiam tempore minima quas sapiente rem praesentium nulla possimus voluptas, a quaerat. Alias.",
+      "exploreSolutions": "Explore Solutions",
+      "checkOutOurFAQ": "Check out our FAQ about how Stack Overflow works.",
+      "visitHelpCenter": "Visit the Help Center",
+      "shareFeedback": "To share feedback about our platform, please visit our meta community.",
+      "visitMeta": "Visit Meta",
+      "lookingForHelp": "Looking for help with Stack Overflow for Teams?",
+      "visitTeamsHelpCenter": "Visit Teams Help Center",
+      "findLegalDocuments": "Find legal documents for our products and services.",
+      "visitLegal": "Visit Legal"
     }
   }
 

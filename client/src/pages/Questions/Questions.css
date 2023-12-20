@@ -1,5 +1,5 @@
 .questionsPage{
-    width: 100%;
+    width: 82%;
     display: flex;
 }
 .questions{
@@ -54,4 +54,26 @@
 .questionsContainer{
     display: flex;
     flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+    .questionsPage{
+        width: 100%;
+    }
+}
+
+@media (max-width: 426px) {
+    .questionsPage{
+        width: 100%;
+    }
+    .questions{
+        width: 100%;
+    }
+    .questionsHeader{
+        padding: 20px 10px;
+    }
+    .questionsHeading{
+        font-size: 20px;
+    }
 }

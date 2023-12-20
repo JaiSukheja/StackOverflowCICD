@@ -99,10 +99,10 @@ const Signup = () => {
             </button>
           </div>
           <div className="signupTerms">
-            {t('signup.byClicking')}
-            <a href="#">{t('signup.termsOfService')}</a>,{' '}
-            <a href="#">{t('signup.privacyPolicy')}</a>, {t('signup.and')}{' '}
-            <a href="#">{t('signup.cookiePolicy')}</a>
+            {t('signup.byClicking')}{' '}
+            <a href="/terms">{t('signup.termsOfService')}</a>,{' '}
+            <a href="/policy">{t('signup.privacyPolicy')}</a>, {t('signup.and')}{' '}
+            <a href="/cookies">{t('signup.cookiePolicy')}</a>
           </div>
           <div className="signupLogin">
             {t('signup.alreadyHaveAccount')} <Link to="/login">{t('signup.logIn')}</Link>

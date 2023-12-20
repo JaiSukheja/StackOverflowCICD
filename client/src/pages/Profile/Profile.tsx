@@ -64,7 +64,7 @@ const Profile = () => {
             res.data?.points.answerUpvotesPoints * 5 +
             res.data?.points.answerDownvotesPoints * 2
         );
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err: any) => {
         console.log(err);
@@ -80,7 +80,7 @@ const Profile = () => {
   return (
     
     <div className="profile">
-      <Sidebar />
+      <Sidebar activeLink={"users"} />
       <div className="profileContainer">
         <div className="profileBox">
           <div className="profileHeader">
@@ -186,7 +186,6 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-          </div>
           <div className="profileBadges">
             <div className="profileBadgesHeader">{t("profile.badges")}</div>
             <div className="profileBadgesContent">
@@ -268,6 +267,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

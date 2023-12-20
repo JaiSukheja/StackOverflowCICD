@@ -8,6 +8,7 @@ import UserContext from "../../context/userContext";
 import ViewAnswers from "../../components/ViewAnswers/ViewAnswers";
 import apiContext from "../../context/apiContext";
 import { useTranslation } from "react-i18next";
+import languageContext from "../../context/languageContext";
 
 const ViewQuestion = () => {
     const { t } = useTranslation();
@@ -21,6 +22,11 @@ const ViewQuestion = () => {
     const [downvote, setDownvote] = useState(false);
     const { user:currentUser }: any = useContext(UserContext);
     const {apiUrl}:any = useContext(apiContext);
+    const [translatedText,setTranslatedText] = useState("");
+    const [translatedTitle,setTranslatedTitle] = useState("");
+    const { lang }:any = useContext(languageContext);
+
+    
 
     useEffect(() => {
         axios.put(apiUrl+"/question/" + qid, {
@@ -28,6 +34,8 @@ const ViewQuestion = () => {
             })
             .then((res) => {
                 setQuestion(res.data);
+                setTranslatedText(res.data.text);
+                setTranslatedTitle(res.data.title);
                 res.data?.upvotes.includes(currentUser?._id)
                     ? setUpvote(true)
                     : setUpvote(false);
@@ -39,6 +47,7 @@ const ViewQuestion = () => {
                 console.log(err);
             });
     }, [reset]);
+    
     useEffect(() => {
         axios
             .get(apiUrl+"/answer/" + qid)
@@ -49,6 +58,22 @@ const ViewQuestion = () => {
                 console.log(err);
             });
     }, [reset]);
+    useEffect(() => {
+        if((lang === 'hi' || lang === 'fr') && ((question?.text !== undefined) && (question?.title !== undefined))){
+          axios.get(`https://api.mymemory.translated.net/get?q=${question?.text.length > 500 ? question?.text.substring(0,500) : question?.text}&langpair=en|${lang}&de=user1@gmail.com`)
+          .then((res: any) => {
+            setTranslatedText(res.data.responseData.translatedText);
+          });
+          axios.get(`https://api.mymemory.translated.net/get?q=${question?.title}&langpair=en|${lang}&de=user1@gmail.com`)
+          .then((res: any) => {
+            setTranslatedTitle(res.data.responseData.translatedText);
+          });
+        }
+        else{
+          setTranslatedText(question?.text);
+          setTranslatedTitle(question?.title);
+        }
+      });
 
     const upvoteClick = () => {
         console.log(currentUser)
@@ -95,7 +120,7 @@ const ViewQuestion = () => {
             <Sidebar />
             <div className="viewQuestionContainer">
                 <div className="viewQuestionHeader">
-                    <div className="viewQuestionHeading">{question?.title}</div>
+                    <div className="viewQuestionHeading">{translatedTitle}</div>
                     <div className="viewQuestionBtns">
                         {currentUser?._id === question?.user ? (
                             <>
@@ -168,7 +193,7 @@ const ViewQuestion = () => {
                         </button>
                     </div>
                     <div className="viewQuestionDescription">
-                        <div className="viewQuestionDesc">{question?.text !== undefined ? question.text : ""}</div>
+                        <div className="viewQuestionDesc">{question?.text !== undefined ? translatedText: ""}</div>
                         <div className="viewQuestionTags">
                             {question?.tags.map((item: any, idx: number) => {
                                 return (

@@ -16,10 +16,11 @@
     display: flex;
     flex-direction: column;
     text-align: right;
-    padding: 10px 20px;
+    padding: 10px 1%;
     gap: 5px;
     font-size: 14px;
-    color: gray;
+    color: rgb(106, 106, 106);
+    font-weight: 800;
 }
 .questionBox{
     width: 80%;
@@ -48,9 +49,17 @@
     justify-content: space-between;
     align-items: center;
     color: gray;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 200;
     margin-bottom: 10px;
+    /* limit the max content to 30 words*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+
 }
 .questionFooter{
     width: 100%;
@@ -80,6 +89,7 @@
     color: rgb(48, 116, 251);
     font-size: 14px;
     font-weight: 200;   
+    text-decoration: none;
 }
 .tag:hover{
     background-color: rgb(175, 215, 252);
@@ -110,4 +120,38 @@
     color: gray;
     font-size: 14px;
     font-weight: 200;
+}
+
+@media (max-width:426px) {
+    .questionContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .detailsBox{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        padding-bottom: 0px;
+    }
+    .questionBox{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    .questionFooter{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        color: rgb(49, 48, 48);
+        font-size: 14px;
+        font-weight: 200;
+        gap: 10px;
+    }
+    
 }

@@ -1,6 +1,6 @@
 .profile {
     display: flex;
-    width: 100%;
+    width: 82%;
 }
 
 .profileContainer {
@@ -20,6 +20,7 @@
   /* padding: 20px; */
   border-radius: 5px;
   background-color: white;
+  flex-wrap: wrap;
   /* box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2); */
 }
 .profileHeader {
@@ -27,13 +28,14 @@
   display: flex;
   align-items: start;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .profileImage {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 20%;
-    width: 240px;
+    min-width: 200px;
     height: 240px;
     display: flex;
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
@@ -58,7 +60,7 @@
   }
   .profileInfo {
     padding: 15px;
-    width: 25%;
+    min-width: max-content;
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -198,7 +200,7 @@
 }
 .profileBadges{
     width: 100%;
-    height: 100%;
+    height: max-content;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -226,11 +228,11 @@
     flex-wrap: wrap;
 }
 .profileBadgesContent i{
-    font-size: 100px;
+    font-size: 3rem;
     color: lightgray;
 }
 .profileBadgesContent .badgeHr{
-    width: 70px;
+    width: 2rem;
     height: 5px;
     background-color: lightgray;
     outline: none;
@@ -299,7 +301,7 @@
 
 .profileBadgesName{
     width: 10%;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 200;
     color: gray;
     text-transform: capitalize;
@@ -310,7 +312,8 @@
 
 .profileBioBox {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-    width: 75%;
+    width: 100%;
+    min-width: 75%;
     height: 240px;
     font-size: 14px;
     font-weight: 200;
@@ -362,3 +365,120 @@
   }
   
   
+@media (max-width: 768px){
+    .profile{
+        width: 100%;
+    }
+    .profileContainer{
+        padding: 10px;
+    }
+    .profileBox{
+        padding: 10px;
+    }
+    .profileHeader{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .profileImage{
+        max-width: 100%;
+        height: 200px;
+    }
+    .profileDetails{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .profileInfo{
+        width: 100%;
+        height: max-content;
+    }
+    .profileBody{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .profileBodyBox{
+        width: 100%;
+        min-width: 100%;
+    }
+    .profileBadgesContent{
+        gap: 20px;
+    }
+    .profileBadgesContent .badgeHr{
+        display: none;
+    }
+    .profileBadgesName{
+        font-size: small;
+    }
+    
+}
+
+@media (max-width: 426px){
+    .profileContainer{
+        width: 90%;
+    }
+    .profileInfo{
+        height: max-content;
+    }
+    .profileBodyBox{
+        padding: 10px;
+    }
+    .profileBadgesContent{
+        gap: 10px;
+    }
+    .profileBadgesContent .badgeHr{
+        display: none;
+    }
+    .profileBadgesName{
+        font-size: x-small;
+    }
+    .profileBadgesContent i{
+        font-size: 2rem;
+    }
+    .profileBadgesContent .badgeHr{
+        width: 1rem;
+    }
+    .profileBadgesName{
+        display: none;
+    }
+    .goldMedal i,
+    .silverMedal i,
+    .bronzeMedal i{
+        display: none;
+    }
+    .goldMedal,
+    .silverMedal,
+    .bronzeMedal{
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 200;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+    .medalCount{
+        font-size: 10px;
+    }
+    .profileBioBox{
+        flex-wrap: wrap;
+        height: max-content;
+    }
+    .browserInfo,
+    .osInfo,
+    .engineInfo,
+    .deviceInfo,
+    .cpuInfo,
+    .uaInfo,
+    .ipInfo,
+    .loginTimeInfo{
+        width: 100%;
+        flex-direction: column;
+    }
+    .profileBadgesContent i{
+        font-size: 3.5rem;
+    }
+    
+}

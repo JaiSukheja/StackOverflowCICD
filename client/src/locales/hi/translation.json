@@ -142,7 +142,33 @@
       "browseOtherQuestionsTagged": "अन्य प्रश्नों को टैग किया गया",
       "or": "या",
       "askYourOwnQuestion": "अपना सवाल पूछें।"
-    }
-  }
+    },
+    "about": {
+      "heroTitle": "सामूहिक ज्ञान के माध्यम से दुनिया को प्रौद्योगिकी विकसित करना.",
+      "heroSubtitle": "हमारे उत्पाद और उपकरण लोगों को काम या घर पर सवाल पूछने, साझा करने और सीखने की संभावना प्रदान करते हैं।",
+      "dataBoxSubtitle1": "विश्वसनीय और उच्च गुणवत्ता के ज्ञान का",
+      "dataBoxSubtitle2": "नए प्रश्नों के बीच औसत समय",
+      "dataBoxSubtitle3": "अब तक कुल प्रश्न और उत्तर",
+      "dataBoxSubtitle4": "ज्ञान का पुनः उपयोग किया जाने वाला समय",
+      "trustingCompaniesSubtitle": "नवाचारी टीमों का समर्थन करना",
+      "contentDesc1": "हम जेनएआई को हमारी सार्वजनिक प्लेटफ़ॉर्म, स्टैक ओवरफ़्लो फॉर टीम्स, और नई उत्पाद क्षेत्रों में एक IDE एकीकरण कर रहे हैं जो हमारे समुदाय से ज्ञान को विकसित करने वाले क्षेत्र में सीधे लाता है जहां डेवेलपर्स ध्यान केंद्रित करते हैं और काम करते हैं।",
+      "learnMore": "और अधिक जानें",
+      "whatWeAreWorkingOn": "हम क्या काम कर रहे हैं >",
+      "contentDesc2": "हम सार्वजनिक प्रश्न-उत्तर प्लेटफ़ॉर्म के लिए सबसे अच्छे तरीके से जाने जाते हैं जो महीने में 100 मिलियन से अधिक लोगों को प्रश्न पूछने, सीखने और तकनीकी ज्ञान साझा करने के लिए आते हैं। Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate at est deserunt non totam iure ab nesciunt illum, necessitatibus rerum natus quasi, dolorum doloribus possimus. Consequatur id pariatur soluta laudantium?",
+      "joinCommunity": "समुदाय में शामिल हों",
+      "contentDesc3": "जहां डेवेलपर्स और तकनीकवादी अपने सहकर्मियों के साथ निजी ज्ञान साझा करते हैं। Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, fugit laudantium. Ex amet, nulla eaque corrupti veniam possimus deleniti deserunt consectetur cumque quidem cupiditate commodi repellendus eius dolor doloribus sint!",
+      "talkToExpert": "विशेषज्ञ से बात करें >",
+      "contentDesc4": "विकसकर्ताओं और तकनीकवादियों के सबसे बड़े दर्शक तालिका तक पहुंचें। Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quisquam modi nihil numquam magnam, veritatis accusantium quia aperiam tempore minima quas sapiente rem praesentium nulla possimus voluptas, a quaerat. Alias.",
+      "exploreSolutions": "समाधान अन्वेषण करें",
+      "checkOutOurFAQ": "Stack Overflow कैसे काम करता है, उसके बारे में हमारी FAQ देखें।",
+      "visitHelpCenter": "सहायता केंद्र पर जाएं",
+      "shareFeedback": "हमारे प्लेटफ़ॉर्म के बारे में प्रतिक्रिया साझा करने के लिए, कृपया हमारे मीटा समुदाय की यात्रा करें।",
+      "visitMeta": "मीटा पर जाएं",
+      "lookingForHelp": "Stack Overflow for Teams के साथ मदद की तलाश में हैं?",
+      "visitTeamsHelpCenter": "टीम्स सहायता केंद्र पर जाएं",
+      "findLegalDocuments": "हमारे उत्पादों और सेवाओं के लिए कानूनी दस्तावेज़ खोजें।",
+      "visitLegal": "कानूनी यहां देखें"
+  }  
+}
 
   

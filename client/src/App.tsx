@@ -7,14 +7,13 @@ import Login from "./pages/Login/Login";
 import AskQuestion from "./pages/AskQuestion/AskQuestion";
 import Profile from "./pages/Profile/Profile";
 import ViewQuestion from "./pages/ViewQuestion/ViewQuestion";
-import Tags from "./pages/Tags/Tags";
+// import Tags from "./pages/Tags/Tags";
 import Questions from "./pages/Questions/Questions";
 import NotFound from "./pages/NotFound/NotFound";
 import UserContext from "./context/userContext";
 import { useContext } from "react";
 import About from "./pages/About/About";
 import Footer from "./components/Footer/Footer";
-
 
 const App = () => {
   const { isLoggedIn }:any = useContext(UserContext)
@@ -74,7 +73,8 @@ const App = () => {
         },
         {
           path: "/tags",
-          element: <Tags/>
+          // element: <Tags/>
+          element: <NotFound activeLink={"tags"}/>
         },
         {
           path: "/viewQuestion/:id",

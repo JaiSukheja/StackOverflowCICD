@@ -1,5 +1,5 @@
 .about{
-    width: 100%;
+    width: 82%;
     min-height: 100vh;
 }
 .aboutHero{
@@ -172,11 +172,11 @@
     overflow: hidden;
 }
 .aboutContentRightImg{
-    width: 120%;
-    height: 120%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 15px;
-    transform: translate(50px,25px);
+    /* transform: translate(50px,25px); */
 }
 .aboutContentLinks{
     width: 100%;
@@ -294,4 +294,197 @@
     cursor: pointer;
     text-align: left;
     margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .aboutHero{
+        padding: 50px;
+    }
+    .aboutHeroTitle{
+        font-size: 40px;
+    }
+    .aboutHeroSubtitle{
+        width: 70%;
+        font-size: 20px;
+    }
+    .aboutData{
+        padding: 20px;
+    }
+    .dataBox{
+        padding: 10px;
+    }
+    .dataBoxTitle{
+        font-size: 28px;
+    }
+    .dataBoxSubtitle{
+        font-size: 16px;
+    }
+    .trustingCompanies{
+        padding: 20px;
+    }
+    .trustingCompaniesSubtitle{
+        font-size: 16px;
+    }
+    .trustingCompaniesLogos{
+        gap: 20px;
+    }
+    .trustingCompaniesLogo{
+        width: 100px;
+        height: 100px;
+    }
+    .aboutContent{
+        padding: 20px;
+    }
+    .aboutContentLeft{
+        padding: 20px;
+    }
+    .aboutContentLeftImg{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .aboutContentDesc{
+        font-size: 16px;
+    }
+    .aboutContentRight{
+        padding: 20px;
+    }
+    .aboutContentRightImg{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    .aboutContentLinks{
+        gap: 5px;
+    }
+    .aboutContentLinkBtn{
+        padding: 5px;
+        font-size: 16px;
+    }
+    .aboutContentLink{
+        padding: 5px;
+        font-size: 16px;
+    }
+    .aboutLinksBox{
+        padding: 20px;
+    }
+    .aboutLink{
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        gap: 20px;
+    }
+    .aboutLink i{
+        font-size: 60px;
+    }
+    .aboutLinkTitle{
+        font-size: 16px;
+        height: 40px;
+    }
+    .aboutLinkBtn{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .aboutHero{
+        padding: 30px;
+    }
+    .aboutHeroTitle{
+        font-size: 30px;
+    }
+    .aboutHeroSubtitle{
+        width: 80%;
+        font-size: 18px;
+    }
+    .aboutData{
+        padding: 10px;
+    }
+    .dataBox{
+        padding: 5px;
+    }
+    .dataBoxTitle{
+        font-size: 24px;
+    }
+    .dataBoxSubtitle{
+        font-size: 14px;
+    }
+    .trustingCompanies{
+        padding: 10px;
+    }
+    .trustingCompaniesSubtitle{
+        font-size: 14px;
+    }
+    .trustingCompaniesLogos{
+        gap: 10px;
+    }
+    .trustingCompaniesLogo{
+        width: 80px;
+        height: 80px;
+    }
+    .aboutContent{
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
+    .aboutContent.two{
+        flex-direction: column-reverse;
+    }
+    .aboutContent.three{
+        flex-direction: column-reverse;
+    }
+    .aboutContent.four{
+        flex-direction: column-reverse;
+    }
+    .aboutContentLeft{
+        width: 100%;
+        padding: 10px;
+    }
+    .aboutContentLeftImg{
+        width: 50%;
+        margin-bottom: 10px;
+    }
+    .aboutContentDesc{
+        font-size: 14px;
+    }
+    .aboutContentRight{
+        width: 100%;
+        padding: 10px;
+    }
+    .aboutContentRightImg{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    .aboutContentLinks{
+        gap: 5px;
+    }
+    .aboutContentLinkBtn{
+        padding: 5px;
+        font-size: 14px;
+    }
+    .aboutContentLink{
+        padding: 5px;
+        font-size: 14px;
+    }
+    .aboutLinksBox{
+        padding: 10px;
+    }
+    .aboutLink{
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        gap: 20px;
+    }
+    .aboutLink i{
+        font-size: 50px;
+    }
+    .aboutLinkTitle{
+        font-size: 14px;
+        height: 40px;
+    }
+    .aboutLinkBtn{
+        font-size: 14px;
+        padding: 15px 0 0 0;
+    }
 }

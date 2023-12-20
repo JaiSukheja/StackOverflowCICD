@@ -5,11 +5,15 @@ import { useTranslation } from 'react-i18next'; // Import the useTranslation hoo
 import apiContext from '../../context/apiContext';
 
 import './Question.css';
+import languageContext from '../../context/languageContext';
 
 const Question = (props: any) => {
   const { t } = useTranslation(); // Initialize the useTranslation hook
   const [username, setUsername] = useState('');
   const { apiUrl }: any = useContext(apiContext);
+  const [translatedText,setTranslatedText] = useState(props.data.text);
+  const [translatedTitle,setTranslatedTitle] = useState(props.data.title);
+  const { lang }:any = useContext(languageContext);
 
   useEffect(() => {
     axios
@@ -22,6 +26,30 @@ const Question = (props: any) => {
       });
   }, []);
 
+  
+  
+  useEffect(() => {
+    if(lang === 'hi' || lang === 'fr'){
+      axios.get(`https://api.mymemory.translated.net/get?q=${props.data.text}&langpair=en|${lang}&de=user1@gmail.com`)
+      .then((res: any) => {
+        setTranslatedText(res.data.responseData.translatedText);
+      });
+      axios.get(`https://api.mymemory.translated.net/get?q=${props.data.title}&langpair=en|${lang}&de=user1@gmail.com`)
+      .then((res: any) => {
+        setTranslatedTitle(res.data.responseData.translatedText);
+      });
+    }
+    else{
+      setTranslatedText(props.data.text);
+      setTranslatedTitle(props.data.title);
+    }
+  });
+
+
+  
+
+
+
   return (
     <div className="question">
       <div className="questionContainer">
@@ -32,13 +60,13 @@ const Question = (props: any) => {
         </div>
         <div className="questionBox">
           <Link to={'/viewquestion/' + props.data._id} className="questionStatement">
-            {props.data.title}
+            {translatedTitle}
           </Link>
-          <div className="questionDescription">{props.data.text}</div>
+          <div className="questionDescription">{translatedText}</div>
           <div className="questionFooter">
             <div className="tags">
               {props.data.tags.map((item: any, idx: number) => {
-                return <div className="tag" key={idx}>{item}</div>;
+                return <Link to={"/"+item} className="tag" key={idx}>{item}</Link>;
               })}
             </div>
             <div className="askedBy">

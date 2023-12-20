@@ -8,8 +8,9 @@
 }
 .appContainer{
     display: flex;
-    width: 82%;
+    width: 100%;
     background-color: white;
+    justify-content: center;
 }
 .sidebarContianer{
     width: 10%;

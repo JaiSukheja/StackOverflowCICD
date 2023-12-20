@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'; // Import the useTranslation hoo
 import UserContext from '../../context/userContext';
 import apiContext from '../../context/apiContext';
 import './ViewAnswers.css';
+import languageContext from '../../context/languageContext';
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const { t } = useTranslation(); // Initialize the useTranslation hook
@@ -15,6 +16,8 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const [downvote, setDownvote] = useState(false);
   const { apiUrl }: any = useContext(apiContext);
   const [edit, setEdit] = useState(false);
+  const [translatedText,setTranslatedText] = useState("");
+  const { lang }:any = useContext(languageContext);
 
   const handleClick = () => {
     axios
@@ -24,9 +27,10 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
         questionId: question._id,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setReset(!reset);
         setText('');
+        res.data;
       })
       .catch((err) => {
         console.log(err);
@@ -116,6 +120,20 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     window.location.href = '/login';
   };
 
+  const languageHandler = (text:any) => {
+    if(translatedText !== undefined){
+      axios.get(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${lang}&de=user1@gmail.com`)
+      .then((res: any) => {
+        setTranslatedText(res.data.responseData.translatedText);
+      });
+    }
+    else{
+      setTranslatedText(text);
+    }
+    return translatedText;
+  }
+
+
   return (
     <div>
       <div className="viewQuestionAnswers">
@@ -150,16 +168,18 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 </button>
               </div>
               <div className="answerBody">
-                <div className="answerDescription">{item?.text}</div>
+                <div className="answerDescription">{
+                  (lang === 'hi' || lang === 'fr') ? languageHandler(item?.text) : item?.text
+                }</div>
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
                     <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()}</span>
                   </pre>
-                  <pre className="answerDetail">
+                  {/* <pre className="answerDetail">
                     {t('viewAnswers.active')}{' '}
                     <span className="answerDetailValue">{new Date(item?.updatedAt).toLocaleDateString()}</span>
-                  </pre>
+                  </pre> */}
                 </div>
                 <div className="answerLinks">
                   <div className="answerLink">
@@ -181,6 +201,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                   <div className="answerLink">
                     <i className="bx bx-bookmark-alt"></i>
                     <span className="answerLinkName">{t('viewAnswers.bookmark')}</span>
+                  </div>
                   </div>
                   <div className="viewQuestionBtns">
                     {currentUser?._id && currentUser._id === item?.user && (
@@ -205,7 +226,6 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                         {item?.isAccepted ? t('viewAnswers.unaccept_answer') : t('viewAnswers.accept_answer')}
                       </button>
                     )}
-                  </div>
                 </div>
               </div>
             </div>

@@ -142,5 +142,31 @@
     "browseOtherQuestionsTagged": "Parcourir d'autres questions marquées",
     "or": "ou",
     "askYourOwnQuestion": "poser votre propre question."
+  },
+  "about": {
+    "heroTitle": "Donner du pouvoir au monde pour développer la technologie grâce à la connaissance collective.",
+    "heroSubtitle": "Nos produits et outils permettent aux gens de poser des questions, de partager et d'apprendre au travail ou à la maison.",
+    "dataBoxSubtitle1": "de connaissances fiables et de haute qualité",
+    "dataBoxSubtitle2": "temps moyen entre de nouvelles questions",
+    "dataBoxSubtitle3": "total des questions et réponses jusqu'à présent",
+    "dataBoxSubtitle4": "fois où la connaissance a été réutilisée",
+    "trustingCompaniesSubtitle": "Soutien aux équipes innovantes de...",
+    "contentDesc1": "Nous intégrons GenAI dans notre plateforme publique, Stack Overflow for Teams, et dans de toutes nouvelles zones de produits, comme une intégration à l'EDI qui apporte les connaissances de notre communauté directement dans la zone où les développeurs se concentrent et travaillent.",
+    "learnMore": "En savoir plus",
+    "whatWeAreWorkingOn": "Ce sur quoi nous travaillons >",
+    "contentDesc2": "Nous sommes surtout connus pour notre plateforme publique de questions-réponses que plus de 100 millions de personnes visitent chaque mois pour poser des questions, apprendre et partager des connaissances techniques. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate at est deserunt non totam iure ab nesciunt illum, necessitatibus rerum natus quasi, dolorum doloribus possimus. Consequatur id pariatur soluta laudantium?",
+    "joinCommunity": "Rejoindre la communauté",
+    "contentDesc3": "Où les développeurs et les technologues partagent des connaissances privées avec leurs collègues. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, fugit laudantium. Ex amet, nulla eaque corrupti veniam possimus deleniti deserunt consectetur cumque quidem cupiditate commodi repellendus eius dolor doloribus sint!",
+    "talkToExpert": "Parler à un expert >",
+    "contentDesc4": "Atteindre la plus grande audience de développeurs et de technologues du monde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quisquam modi nihil numquam magnam, veritatis accusantium quia aperiam tempore minima quas sapiente rem praesentium nulla possimus voluptas, a quaerat. Alias.",
+    "exploreSolutions": "Explorer les solutions",
+    "checkOutOurFAQ": "Consultez notre FAQ sur le fonctionnement de Stack Overflow.",
+    "visitHelpCenter": "Visiter le Centre d'aide",
+    "shareFeedback": "Pour partager des commentaires sur notre plateforme, veuillez visiter notre communauté Meta.",
+    "visitMeta": "Visiter Meta",
+    "lookingForHelp": "Besoin d'aide avec Stack Overflow for Teams?",
+    "visitTeamsHelpCenter": "Visiter le Centre d'aide Teams",
+    "findLegalDocuments": "Trouver les documents juridiques de nos produits et services.",
+    "visitLegal": "Visiter la section Juridique"
   }
 }

@@ -1,21 +1,17 @@
-import { useEffect } from 'react';
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import './languageSelector.css'; // Make sure to import your existing styles
+import languageContext from '../../context/languageContext';
 
 function LanguageSelector() {
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    const lang = localStorage.getItem('language');
-    if (lang === null) {
-      localStorage.setItem('language', 'en');
-    } else {
-      i18n.changeLanguage(lang);
-    }
-  }, []);
+  const { setLang }:any = useContext(languageContext);
+  
 
   const changeLanguage = (language:any) => {
     i18n.changeLanguage(language);
+    setLang(language);
     localStorage.setItem('language', language);
   };
 

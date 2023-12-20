@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../../context/userContext';
 import axios from 'axios';
 
@@ -22,6 +22,7 @@ const Navbar = () => {
     userId,
   }:any = useContext(UserContext);
   const { apiUrl }:any = useContext(apiContext);
+  const [show,setShow] = useState(true);
 
   const handleLogout = async () => {
     axios
@@ -42,37 +43,42 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className="navbarContainer">
+      <div className="menuIcon">
+        {show ? <i className="bx bx-menu" onClick={()=>{setShow(!show)}}></i> : <i className="bx bx-x" onClick={()=>{setShow(!show)}}></i>}
+      </div>
+      <div className= {show ? "navbarContainer": "navbarContainer show"}>  
+        <Link to="/" className="logo">
+          <img src={logoimg} alt="" className="logoImg" />
+        </Link>      
         <div className="navlinks">
-          <Link to="/" className="logo">
-            <img src={logoimg} alt="" className="logoImg" />
-          </Link>
-          <Link to="/about" className="navlink">
+          <Link to="/about" className="navlink" onClick={()=>{setShow(!show)}}>
             {t('navbar.about')}
           </Link>
-          <Link to="/questions" className="navlink">
+          <Link to="/questions" className="navlink" onClick={()=>{setShow(!show)}}>
             {t('navbar.product')}
           </Link>
-          <div className="navlink">{t('navbar.forTeams')}</div>
+          <Link to="/forteams" className="navlink" onClick={()=>{setShow(!show)}}>
+            {t('navbar.forTeams')}
+          </Link>
+          <LanguageSelector />
         </div>
         <div className="searchbar">
           <i className="bx bx-search"></i>
           <input type="text" placeholder={t('navbar.searchPlaceholder')} />
         </div>
-        <LanguageSelector />
         <div className="Auth">
           {!isLoggedIn ? (
             <>
-              <Link to="/login" className="loginBtn">
+              <Link to="/login" className="loginBtn" onClick={()=>{setShow(!show)}}>
                 {t('navbar.login')}
               </Link>
-              <Link to="/signup" className="signupBtn">
+              <Link to="/signup" className="signupBtn" onClick={()=>{setShow(!show)}}>
                 {t('navbar.signup')}
               </Link>
             </>
           ) : (
             <>
-              <Link to={`/profile/${userId}`} className="loginBtn">
+              <Link to={`/profile/${userId}`} className="loginBtn" onClick={()=>{setShow(!show)}}>
                 <i className="bx bx-user"></i>
                 {username}
               </Link>

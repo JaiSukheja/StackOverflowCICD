@@ -1,8 +1,7 @@
 .askQuestion{
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 50px);
-    width: 100%;
+    width: 82%;
     padding: 40px;
 }
 .askQuestionHeading{
@@ -69,5 +68,12 @@
         background-color: white;
         color: #1a73e8;
         border: 1px solid #1a73e8;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .askQuestion{
+        width: 100%;
     }
 }

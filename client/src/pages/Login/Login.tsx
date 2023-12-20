@@ -73,7 +73,7 @@ const Login = () => {
             </button>
           </div>
           <div className="loginTerms">
-            <a href="#">{t('login.forgotPassword')}</a>
+            <a href="/forgotPassword">{t('login.forgotPassword')}</a>
           </div>
           <div className="loginSignup">
             {t('login.noAccount')} <Link to="/signup">{t('login.signup')}</Link>
