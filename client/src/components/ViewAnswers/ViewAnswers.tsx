@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 import UserContext from '../../context/userContext';
 import apiContext from '../../context/apiContext';
 import './ViewAnswers.css';
-import languageContext from '../../context/languageContext';
 import { Link } from 'react-router-dom';
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
@@ -13,12 +12,10 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const { user: currentUser } = useContext<any>(UserContext);
   const [shareModal, setShareModal] = useState<any>(false);
   const [copyMessage, setCopyMessage] = useState<any>(false);
-  const [upvote, setUpvote] = useState(false);
-  const [downvote, setDownvote] = useState(false);
+  // const [upvote, setUpvote] = useState(false);
+  // const [downvote, setDownvote] = useState(false);
   const { apiUrl }: any = useContext(apiContext);
   const [edit, setEdit] = useState(false);
-  const [translatedText,setTranslatedText] = useState("");
-  const { lang }:any = useContext(languageContext);
 
   const handleClick = () => {
     axios
@@ -121,25 +118,6 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     window.location.href = '/login';
   };
 
-  const languageHandler = (text:any) => {
-    if(translatedText !== undefined){
-      axios.get(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${lang}&de=user1@gmail.com`)
-      .then((res: any) => {
-        setTranslatedText(res.data.responseData.translatedText);
-      });
-    }
-    else{
-      setTranslatedText(text);
-    }
-    return translatedText;
-  }
-
-  const getAnswerUsername = (id: any) => {
-    axios.get(`${apiUrl}/user/${id}`).then((res: any) => {
-      return res.data.username;
-    });
-    return "User Details";
-  }
 
   return (
     <div>
@@ -148,13 +126,8 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
           {question?.answers.length} {t('viewAnswers.answers')}
         </div>
         {answers?.map((item: any, idx: number) => {
-          let username:any = [];
-          useEffect(() => {
-            username[idx] = getAnswerUsername(item?.user);
-          }
-          ,[]);
           return (
-            <div className="viewQuestionAnswer" key={idx}>
+            <div className="viewQuestionAnswer" key={idx} id={"answer"+idx}>
               {item?.isAccepted && (
                 <div className="acceptedAnswer">
                   <i className="bx bx-badge-check"></i>
@@ -164,30 +137,30 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 <button
                   onClick={() => {
                     currentUser._id ? upvoteClick(item._id) : toLogin();
-                    item?.upvotes.includes(currentUser._id) ? setUpvote(false) : setUpvote(true);
+                    item?.upvotes.includes(currentUser._id) 
                   }}
                 >
-                  <i className={upvote ? 'bx bx-caret-up active' : 'bx bx-caret-up'}></i>
+                  <i className={'bx bx-caret-up'}></i>
                 </button>
                 <div className="answerVotesCount">{item?.upvotes.length - item?.downvotes.length}</div>
                 <button
                   onClick={() => {
                     currentUser._id ? downvoteClick(item._id) : toLogin();
-                    item?.downvotes.includes(currentUser._id) ? setDownvote(false) : setDownvote(true);
+                    item?.downvotes.includes(currentUser._id) 
                   }}
                 >
-                  <i className={downvote ? 'bx bx-caret-down active' : 'bx bx-caret-down'}></i>
+                  <i className={'bx bx-caret-down'}></i>
                 </button>
               </div>
               <div className="answerBody">
                 <div className="answerDescription">{
-                  (lang === 'hi' || lang === 'fr') ? languageHandler(item?.text) : item?.text
+                  item?.text
                 }</div>
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
-                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue linked">
-                      {username[idx]}
+                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} from <Link to={"/profile/" + item?.user } className="answerDetailValue linked">
+                      User Profile
                     </Link>
                     </span>
                   </pre>
@@ -211,11 +184,11 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                   </div>
                   <div className="answerLink">
                     <i className="bx bxs-flag-alt"></i>
-                    <span className="answerLinkName">{t('viewAnswers.report')}</span>
+                    <Link to={"/report"} className="answerLinkName">{t('viewAnswers.report')}</Link>
                   </div>
                   <div className="answerLink">
                     <i className="bx bx-bookmark-alt"></i>
-                    <span className="answerLinkName">{t('viewAnswers.bookmark')}</span>
+                    <Link to={"/bookmark"} className="answerLinkName">{t('viewAnswers.bookmark')}</Link>
                   </div>
                   </div>
                   <div className="viewQuestionBtns">
@@ -243,39 +216,39 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                     )}
                 </div>
               </div>
+              {shareModal && (
+                <div className="shareModal">
+                  <div className="shareModalContainer">
+                    <div className="shareModalHeading">{t('viewAnswers.copy_link')}</div>
+                    <div className="shareModalLink">{window.location.href}</div>
+                    <div className="shareModalBtns">
+                      <button
+                        className="shareModalBtn"
+                        onClick={() => {
+                          navigator.clipboard.writeText(window.location.href);
+                          setCopyMessage(true);
+                        }}
+                      >
+                        <i className="bx bx-copy-alt"></i> {t('viewAnswers.copy')}
+                      </button>
+                      <button
+                        className="shareModalBtn"
+                        onClick={() => {
+                          setShareModal(!shareModal);
+                          setCopyMessage(false);
+                        }}
+                      >
+                        <i className="bx bx-x"></i> {t('viewAnswers.close')}
+                      </button>
+                    </div>
+                    {copyMessage && <div className="copyMessage">{t('viewAnswers.link_copied')}</div>}
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
       </div>
-      {shareModal && (
-        <div className="shareModal">
-          <div className="shareModalContainer">
-            <div className="shareModalHeading">{t('viewAnswers.copy_link')}</div>
-            <div className="shareModalLink">{window.location.href}</div>
-            <div className="shareModalBtns">
-              <button
-                className="shareModalBtn"
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
-                  setCopyMessage(true);
-                }}
-              >
-                <i className="bx bx-copy-alt"></i> {t('viewAnswers.copy')}
-              </button>
-              <button
-                className="shareModalBtn"
-                onClick={() => {
-                  setShareModal(!shareModal);
-                  setCopyMessage(false);
-                }}
-              >
-                <i className="bx bx-x"></i> {t('viewAnswers.close')}
-              </button>
-            </div>
-            {copyMessage && <div className="copyMessage">{t('viewAnswers.link_copied')}</div>}
-          </div>
-        </div>
-      )}
       {currentUser?._id && currentUser?._id !== question?.user && (
         <div className="yourAnswerBox">
           <div className="answerBoxHeading">{t('viewAnswers.your_answer')}</div>

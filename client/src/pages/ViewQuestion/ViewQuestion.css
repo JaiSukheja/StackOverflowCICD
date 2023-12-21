@@ -276,12 +276,17 @@
     font-size: 14px;
     padding: 5px 10px;
     font-weight: 200;   
+    text-decoration: none;
 }
 .answerLink:hover{
     background-color: rgb(244, 244, 244);
     cursor: pointer;
 }   
 
+.answerLinkName{
+    text-decoration: none;
+    color: inherit;
+}
 
 
 .yourAnswerBox{
