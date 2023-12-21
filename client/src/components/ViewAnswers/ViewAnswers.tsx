@@ -6,6 +6,7 @@ import apiContext from '../../context/apiContext';
 import './ViewAnswers.css';
 import languageContext from '../../context/languageContext';
 import { Link } from 'react-router-dom';
+import { use } from 'i18next';
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const { t } = useTranslation(); // Initialize the useTranslation hook
@@ -150,6 +151,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
           {question?.answers.length} {t('viewAnswers.answers')}
         </div>
         {answers?.map((item: any, idx: number) => {
+          const username = getAnswerUsername(item?.user);
           return (
             <div className="viewQuestionAnswer" key={idx}>
               {item?.isAccepted && (
@@ -184,7 +186,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
                     <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue linked">{
-                      getAnswerUsername(item?.user)
+                      username
                     }</Link>
                     </span>
                   </pre>
