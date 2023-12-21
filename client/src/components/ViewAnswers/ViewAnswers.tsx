@@ -5,6 +5,7 @@ import UserContext from '../../context/userContext';
 import apiContext from '../../context/apiContext';
 import './ViewAnswers.css';
 import languageContext from '../../context/languageContext';
+import { Link } from 'react-router-dom';
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const { t } = useTranslation(); // Initialize the useTranslation hook
@@ -182,9 +183,9 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
-                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <span className="answerDetailValue"> {
+                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue">{
                       answerUsername ? answerUsername : getAnswerUsername(item?.user)
-                    }</span>
+                    }</Link>
                     </span>
                   </pre>
                   {/* <pre className="answerDetail">
