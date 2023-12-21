@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 import UserContext from '../../context/userContext';
@@ -6,7 +6,6 @@ import apiContext from '../../context/apiContext';
 import './ViewAnswers.css';
 import languageContext from '../../context/languageContext';
 import { Link } from 'react-router-dom';
-import { use } from 'i18next';
 
 const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const { t } = useTranslation(); // Initialize the useTranslation hook
@@ -20,7 +19,6 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const [edit, setEdit] = useState(false);
   const [translatedText,setTranslatedText] = useState("");
   const { lang }:any = useContext(languageContext);
-  const [answerUsername, setAnswerUsername] = useState('');
 
   const handleClick = () => {
     axios
@@ -138,10 +136,9 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
 
   const getAnswerUsername = (id: any) => {
     axios.get(`${apiUrl}/user/${id}`).then((res: any) => {
-      setAnswerUsername(res.data.username);
       return res.data.username;
     });
-    return answerUsername;
+    return "User Details";
   }
 
   return (
@@ -151,7 +148,11 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
           {question?.answers.length} {t('viewAnswers.answers')}
         </div>
         {answers?.map((item: any, idx: number) => {
-          const username = getAnswerUsername(item?.user);
+          let username:any = [];
+          useEffect(() => {
+            username[idx] = getAnswerUsername(item?.user);
+          }
+          ,[]);
           return (
             <div className="viewQuestionAnswer" key={idx}>
               {item?.isAccepted && (
@@ -185,9 +186,9 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
-                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue linked">{
-                      username
-                    }</Link>
+                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue linked">
+                      {username[idx]}
+                    </Link>
                     </span>
                   </pre>
                   {/* <pre className="answerDetail">
