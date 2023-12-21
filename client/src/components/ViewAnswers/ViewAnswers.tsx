@@ -183,8 +183,8 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
-                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue">{
-                      answerUsername ? answerUsername : getAnswerUsername(item?.user)
+                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <Link to={"/profile/" + item?.user } className="answerDetailValue linked">{
+                      getAnswerUsername(item?.user)
                     }</Link>
                     </span>
                   </pre>
