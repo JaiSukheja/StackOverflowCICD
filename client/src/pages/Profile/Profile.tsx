@@ -112,38 +112,34 @@ const Profile = () => {
             <div className="profileMedalsHeader">Login Information</div>
 
                 <div className="browserInfo">
-                  
-                  {renderInfoBlock("Browser", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].browser.name : '')}
-                  {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].browser.version : '')}
+                  {renderInfoBlock("Browser", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].browser?.name : '')}
+                  {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].browser?.version : '')}
                 </div>
 
                 <div className="osInfo">
-                  
-                  {renderInfoBlock("OS", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].os.name : '')}
-                  {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].os.version : '')}
+                  {renderInfoBlock("OS", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].os?.name : '')}
+                  {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].os?.version : '')}
                 </div>
 
-                <div className="engineInfo">
-                 
+                {userData?.loginHistory[userData?.loginHistory.length - 1].engine && <div className="engineInfo">
                   {renderInfoBlock("Engine", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].engine.name : '')}
                   {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].engine.version : '')}
-                </div>
+                </div>}
 
                 {/* {userData?.loginHistory[userData?.loginHistory.length - 1].device.name && <div className="deviceInfo">
                   {renderInfoBlock("Device", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].device.name : '')}
                   {renderInfoBlock("Version", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].device.version : '')}
                 </div>} */}
-                <div className="ipInfo">
-                  {renderInfoBlock("IP Address", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].ipAddress : '')}
-                </div>
-
-                <div className="cpuInfo">
-                  {renderInfoBlock("CPU Architecture", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].cpu.architecture : '')}
-                </div>   
-                <div className="loginTimeInfo"  >
-                  {renderInfoBlock("Login Date", userData?.loginHistory ? new Date(userData?.loginHistory[userData?.loginHistory.length - 1].loginTime).toLocaleDateString() : '')}
-                  {renderInfoBlock("Login Time", userData?.loginHistory ? new Date(userData?.loginHistory[userData?.loginHistory.length - 1].loginTime).toLocaleTimeString() : '')}
-                </div>             
+                {userData?.loginHistory[userData?.loginHistory.length - 1].ipAddress && <div className="ipInfo">
+                  {renderInfoBlock("IP Address", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1]?.ipAddress : '')}
+                </div>}
+                {userData?.loginHistory[userData?.loginHistory.length - 1].cpu.architecture && <div className="cpuInfo">
+                  {renderInfoBlock("CPU Architecture", userData?.loginHistory ? userData?.loginHistory[userData?.loginHistory.length - 1].cpu?.architecture : '')}
+                </div>}
+                {userData?.loginHistory && <div className="loginTimeInfo"  >
+                  {renderInfoBlock("Login Date", userData?.loginHistory ? new Date(userData?.loginHistory[userData?.loginHistory.length - 1]?.loginTime).toLocaleDateString() : '')}
+                  {renderInfoBlock("Login Time", userData?.loginHistory ? new Date(userData?.loginHistory[userData?.loginHistory.length - 1]?.loginTime).toLocaleTimeString() : '')}
+                </div>}             
             </div>
           </div>
           <div className="profileBody">
