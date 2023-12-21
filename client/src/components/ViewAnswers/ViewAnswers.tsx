@@ -18,6 +18,7 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
   const [edit, setEdit] = useState(false);
   const [translatedText,setTranslatedText] = useState("");
   const { lang }:any = useContext(languageContext);
+  const [answerUsername, setAnswerUsername] = useState('');
 
   const handleClick = () => {
     axios
@@ -133,6 +134,13 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
     return translatedText;
   }
 
+  const getAnswerUsername = (id: any) => {
+    axios.get(`${apiUrl}/user/${id}`).then((res: any) => {
+      setAnswerUsername(res.data.username);
+      return res.data.username;
+    });
+    return answerUsername;
+  }
 
   return (
     <div>
@@ -174,7 +182,10 @@ const ViewAnswers = ({ answers, question, reset, setReset }: any) => {
                 <div className="answerDetails">
                   <pre className="answerDetail">
                     {t('viewAnswers.answered')}{' '}
-                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()}</span>
+                    <span className="answerDetailValue">{new Date(item?.createdAt).toLocaleDateString()} by <span className="answerDetailValue"> {
+                      answerUsername ? answerUsername : getAnswerUsername(item?.user)
+                    }</span>
+                    </span>
                   </pre>
                   {/* <pre className="answerDetail">
                     {t('viewAnswers.active')}{' '}
