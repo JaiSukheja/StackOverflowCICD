@@ -1,14 +1,12 @@
 .questionsPage{
-    width: 82%;
+    width: 82%!important;
     display: flex;
+
 }
 .questions{
-    width: calc(100% - 150px);
     display: flex;
     flex-direction: column;
-    /* min-height: calc(100vh - 50px); */
-    /* overflow-y: scroll; */
-    /* justify-content: center; */
+    width: 100%;
     scroll-behavior: smooth;
     border-left: 1px solid lightgrey;
     &::-webkit-scrollbar {
@@ -59,16 +57,13 @@
 
 @media (max-width: 768px) {
     .questionsPage{
-        width: 100%;
+        width: 100%!important;
     }
 }
 
 @media (max-width: 426px) {
-    .questionsPage{
-        width: 100%;
-    }
     .questions{
-        width: 100%;
+        width: calc(100% - 34px);
     }
     .questionsHeader{
         padding: 20px 10px;

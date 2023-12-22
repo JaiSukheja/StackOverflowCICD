@@ -114,19 +114,18 @@
     font-weight: 600;
 }
 .viewQuestionDescription{
-    display: flex;
-    flex-direction: column;
     height: max-content;
-    width: 100%;
+    width: calc(100% - 41px);
 }
 .viewQuestionDesc{
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
+    width: 100%;
 }
 .viewQuestionTags{
-    width: max-content;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -231,7 +230,7 @@
 .answerBody{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: calc(100% - 41px);
 }
 .answerDescription{
     font-size: 16px;
@@ -245,11 +244,15 @@
 }
 .answerDetails{
     display: flex;
-    width: 90%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
     margin-bottom: 10px;
 }
 .answerDetail{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -453,14 +456,14 @@
 
 @media (max-width:426px){
     .viewQuestionContainer{
-        width: 95%;
+        width: 100%;
     }
     .relatedQuestions{
         flex-direction: column;
         gap: 10px;
     }
     .viewQuestionHeader{
-        width: 90%;
+        width: 100%;
         flex-direction: column;
         align-items: start;
     }
@@ -475,5 +478,8 @@
     }
     .viewQuestionDetails{
         flex-wrap: wrap;
+    }
+    .viewQuestionHeading{
+        width: 100%;
     }
 }

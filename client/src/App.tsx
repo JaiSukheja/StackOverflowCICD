@@ -19,15 +19,13 @@ const App = () => {
   const { isLoggedIn }:any = useContext(UserContext)
   const Layout=()=>{
     return (
-      <>
-        <div className="app">  
-          <Navbar/>
-          <div className="appContainer">
-            <Outlet/>
-          </div>
-          <Footer/>
+      <div className="app">  
+        <Navbar/>
+        <div className="appContainer">
+          <Outlet/>
         </div>
-      </>
+        <Footer/>
+      </div>
     )
   }
   const router = createBrowserRouter([
@@ -97,9 +95,7 @@ const App = () => {
     },
   ]);
   return (
-    <div>
       <RouterProvider router={router} />
-    </div>
   )
 }
 

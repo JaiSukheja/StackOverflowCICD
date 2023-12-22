@@ -2,9 +2,11 @@
     display: flex;
     width: 82%;
     min-height: 100vh;
+    justify-content: center;
 }
 .homeContainer{
     display: flex;
+    width: 100%;
     flex-direction: column;
     scroll-behavior: smooth;
     /* border-left: 1px solid lightgrey; */
