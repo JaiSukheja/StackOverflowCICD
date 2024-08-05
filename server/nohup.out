@@ -1,0 +1,130 @@
+
+> server@1.0.0 start
+> nodemon index.js
+
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at errorOrDestroy (node:internal/streams/destroy:214:7)
+    at node:internal/fs/streams:260:9
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:677:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+
+Node.js v18.19.1
+
+> server@1.0.0 start
+> nodemon index.js
+
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at errorOrDestroy (node:internal/streams/destroy:214:7)
+    at node:internal/fs/streams:260:9
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:677:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+
+Node.js v18.19.1
+
+> server@1.0.0 start
+> nodemon index.js
+
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at errorOrDestroy (node:internal/streams/destroy:214:7)
+    at node:internal/fs/streams:260:9
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:677:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+
+Node.js v18.19.1
+
+> server@1.0.0 start
+> nodemon index.js
+
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at errorOrDestroy (node:internal/streams/destroy:214:7)
+    at node:internal/fs/streams:260:9
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:677:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+
+Node.js v18.19.1
+Server is running at : http://localhost:4444
+Connected to MongoDB
+::ffff:157.37.143.39 - - [04/Aug/2024:18:52:00 +0000] "GET / HTTP/1.1" 304 -
+Server is running at : http://localhost:4444
+Connected to MongoDB
+Server is running at : http://localhost:4444
+Connected to MongoDB
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:40 +0000] "GET /question/ HTTP/1.1" 200 6960
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /question/ HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658402709ddc92e5c5f7effe HTTP/1.1" 200 1057
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658401fe9ddc92e5c5f7eff2 HTTP/1.1" 200 1933
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658405d29ddc92e5c5f7f176 HTTP/1.1" 200 1069
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658402119ddc92e5c5f7eff4 HTTP/1.1" 200 1503
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658402709ddc92e5c5f7effe HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:41 +0000] "GET /user/658401fe9ddc92e5c5f7eff2 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658405d29ddc92e5c5f7f176 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658402119ddc92e5c5f7eff4 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658401fe9ddc92e5c5f7eff2 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658402119ddc92e5c5f7eff4 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658401cf9ddc92e5c5f7efee HTTP/1.1" 200 6548
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658401b49ddc92e5c5f7efec HTTP/1.1" 200 2747
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658401fe9ddc92e5c5f7eff2 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:42 +0000] "GET /user/658402119ddc92e5c5f7eff4 HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:43 +0000] "GET /user/658401cf9ddc92e5c5f7efee HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:43 +0000] "GET /user/658401b49ddc92e5c5f7efec HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:43 +0000] "GET /user/658401cf9ddc92e5c5f7efee HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:43 +0000] "GET /user/658401b49ddc92e5c5f7efec HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:43 +0000] "GET /user/658401cf9ddc92e5c5f7efee HTTP/1.1" 304 -
+::ffff:157.37.143.39 - - [04/Aug/2024:19:03:44 +0000] "GET /user/658401b49ddc92e5c5f7efec HTTP/1.1" 304 -
+::ffff:172.169.200.13 - - [04/Aug/2024:19:10:33 +0000] "GET / HTTP/1.1" 200 24

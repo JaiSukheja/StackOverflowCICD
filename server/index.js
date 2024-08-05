@@ -25,8 +25,9 @@ const connect = async () => {
 }
 app.use(
     cors({
-        origin: "https://stack-overflow-orcin.vercel.app",
-        // origin: "http://localhost:5173",
+         origin: "*",
+       // origin: "http://localhost:5173",
+	//origin: "http://172.31.17.84:5173",	    
         allowedHeaders: ["Access-Control-Allow-Origin", "Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin", "x-access-token", "x-refresh-token", "user-token"],
         methods: ["GET", "POST", "PUT", "DELETE"],
     }));
